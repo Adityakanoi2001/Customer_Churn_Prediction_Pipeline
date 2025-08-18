@@ -1,0 +1,6 @@
+artifact_location: file:///opt/airflow/Customer_Churn_Prediction_Pipeline/mlruns
+creation_time: 1755550017276
+experiment_id: '520670040252671663'
+last_update_time: 1755550017276
+lifecycle_stage: active
+name: Churn Prediction (Airflow)

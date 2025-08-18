@@ -1,0 +1,118 @@
+[2025-08-18T20:59:16.067+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_churn_pipeline.model_training manual__2025-08-18T20:58:35.634632+00:00 [queued]>
+[2025-08-18T20:59:16.077+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_churn_pipeline.model_training manual__2025-08-18T20:58:35.634632+00:00 [queued]>
+[2025-08-18T20:59:16.078+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2025-08-18T20:59:16.092+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): model_training> on 2025-08-18 20:58:35.634632+00:00
+[2025-08-18T20:59:16.097+0000] {standard_task_runner.py:60} INFO - Started process 1471 to run task
+[2025-08-18T20:59:16.101+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'customer_churn_pipeline', 'model_training', 'manual__2025-08-18T20:58:35.634632+00:00', '--job-id', '32', '--raw', '--subdir', 'DAGS_FOLDER/customer_churn_pipeline_dag.py', '--cfg-path', '/tmp/tmp_8w0vbqk']
+[2025-08-18T20:59:16.104+0000] {standard_task_runner.py:88} INFO - Job 32: Subtask model_training
+[2025-08-18T20:59:16.157+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_churn_pipeline.model_training manual__2025-08-18T20:58:35.634632+00:00 [running]> on host 2e4674d7276b
+[2025-08-18T20:59:16.224+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='customer_churn_pipeline' AIRFLOW_CTX_TASK_ID='model_training' AIRFLOW_CTX_EXECUTION_DATE='2025-08-18T20:58:35.634632+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-08-18T20:58:35.634632+00:00'
+[2025-08-18T20:59:16.226+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-08-18T20:59:16.228+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/Customer_Churn_Prediction_Pipeline && python src/train_model.py']
+[2025-08-18T20:59:16.248+0000] {subprocess.py:86} INFO - Output:
+[2025-08-18T20:59:19.052+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,052 INFO Loading features and target from feature store...
+[2025-08-18T20:59:19.053+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,052 INFO Connecting to SQLite DB at data/features/churn_features.db
+[2025-08-18T20:59:19.064+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,064 INFO Available tables: ['churn_features']
+[2025-08-18T20:59:19.271+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,271 INFO Retrieved 7032 rows and 36 columns from table churn_features
+[2025-08-18T20:59:19.274+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,274 INFO Found target column 'Churn'. Processing...
+[2025-08-18T20:59:19.274+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,274 INFO Raw target column stats:
+[2025-08-18T20:59:19.275+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,274 INFO   - Type: float64
+[2025-08-18T20:59:19.276+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,274 INFO   - Unique values: [-0.601663392508594, 1.6620589061112205]
+[2025-08-18T20:59:19.276+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,275 INFO   - Value counts:
+[2025-08-18T20:59:19.277+0000] {subprocess.py:93} INFO - -0.601663    5163
+[2025-08-18T20:59:19.277+0000] {subprocess.py:93} INFO -  1.662059    1869
+[2025-08-18T20:59:19.278+0000] {subprocess.py:93} INFO - Name: Churn, dtype: int64
+[2025-08-18T20:59:19.278+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,276 INFO Original target values before normalization: -0.601663    5163
+[2025-08-18T20:59:19.279+0000] {subprocess.py:93} INFO -  1.662059    1869
+[2025-08-18T20:59:19.279+0000] {subprocess.py:93} INFO - Name: Churn, dtype: int64
+[2025-08-18T20:59:19.280+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,276 INFO Original target dtype: float64
+[2025-08-18T20:59:19.280+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,276 INFO Unique numeric values in target: [-0.601663392508594, 1.6620589061112205]
+[2025-08-18T20:59:19.280+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,277 INFO Binary target with values [-0.601663392508594, 1.6620589061112205]. Mapping to (0,1).
+[2025-08-18T20:59:19.281+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,277 INFO Mapped -0.601663392508594→0, 1.6620589061112205→1
+[2025-08-18T20:59:19.281+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,278 INFO Final normalized target stats:
+[2025-08-18T20:59:19.282+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,279 INFO   - Unique values: [0, 1]
+[2025-08-18T20:59:19.283+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,279 INFO   - Value counts:
+[2025-08-18T20:59:19.284+0000] {subprocess.py:93} INFO - 0    5163
+[2025-08-18T20:59:19.284+0000] {subprocess.py:93} INFO - 1    1869
+[2025-08-18T20:59:19.284+0000] {subprocess.py:93} INFO - Name: Churn, dtype: int64
+[2025-08-18T20:59:19.285+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,280 INFO Features shape before dtype fix: (7032, 35), Target shape: (7032,)
+[2025-08-18T20:59:19.292+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,291 INFO Features dtypes after fix:
+[2025-08-18T20:59:19.293+0000] {subprocess.py:93} INFO - gender                                   float64
+[2025-08-18T20:59:19.293+0000] {subprocess.py:93} INFO - SeniorCitizen                            float64
+[2025-08-18T20:59:19.294+0000] {subprocess.py:93} INFO - Partner                                  float64
+[2025-08-18T20:59:19.294+0000] {subprocess.py:93} INFO - Dependents                               float64
+[2025-08-18T20:59:19.294+0000] {subprocess.py:93} INFO - tenure                                   float64
+[2025-08-18T20:59:19.295+0000] {subprocess.py:93} INFO - PhoneService                             float64
+[2025-08-18T20:59:19.296+0000] {subprocess.py:93} INFO - PaperlessBilling                         float64
+[2025-08-18T20:59:19.296+0000] {subprocess.py:93} INFO - MonthlyCharges                           float64
+[2025-08-18T20:59:19.297+0000] {subprocess.py:93} INFO - TotalCharges                             float64
+[2025-08-18T20:59:19.297+0000] {subprocess.py:93} INFO - TotalChargesPerTenure                    float64
+[2025-08-18T20:59:19.298+0000] {subprocess.py:93} INFO - MultipleLines_No phone service           float64
+[2025-08-18T20:59:19.299+0000] {subprocess.py:93} INFO - MultipleLines_Yes                        float64
+[2025-08-18T20:59:19.299+0000] {subprocess.py:93} INFO - InternetService_Fiber optic              float64
+[2025-08-18T20:59:19.300+0000] {subprocess.py:93} INFO - InternetService_No                       float64
+[2025-08-18T20:59:19.301+0000] {subprocess.py:93} INFO - OnlineSecurity_No internet service       float64
+[2025-08-18T20:59:19.302+0000] {subprocess.py:93} INFO - OnlineSecurity_Yes                       float64
+[2025-08-18T20:59:19.304+0000] {subprocess.py:93} INFO - OnlineBackup_No internet service         float64
+[2025-08-18T20:59:19.304+0000] {subprocess.py:93} INFO - OnlineBackup_Yes                         float64
+[2025-08-18T20:59:19.304+0000] {subprocess.py:93} INFO - DeviceProtection_No internet service     float64
+[2025-08-18T20:59:19.305+0000] {subprocess.py:93} INFO - DeviceProtection_Yes                     float64
+[2025-08-18T20:59:19.306+0000] {subprocess.py:93} INFO - TechSupport_No internet service          float64
+[2025-08-18T20:59:19.306+0000] {subprocess.py:93} INFO - TechSupport_Yes                          float64
+[2025-08-18T20:59:19.307+0000] {subprocess.py:93} INFO - StreamingTV_No internet service          float64
+[2025-08-18T20:59:19.307+0000] {subprocess.py:93} INFO - StreamingTV_Yes                          float64
+[2025-08-18T20:59:19.308+0000] {subprocess.py:93} INFO - StreamingMovies_No internet service      float64
+[2025-08-18T20:59:19.308+0000] {subprocess.py:93} INFO - StreamingMovies_Yes                      float64
+[2025-08-18T20:59:19.308+0000] {subprocess.py:93} INFO - Contract_One year                        float64
+[2025-08-18T20:59:19.309+0000] {subprocess.py:93} INFO - Contract_Two year                        float64
+[2025-08-18T20:59:19.309+0000] {subprocess.py:93} INFO - PaymentMethod_Credit card (automatic)    float64
+[2025-08-18T20:59:19.310+0000] {subprocess.py:93} INFO - PaymentMethod_Electronic check           float64
+[2025-08-18T20:59:19.311+0000] {subprocess.py:93} INFO - PaymentMethod_Mailed check               float64
+[2025-08-18T20:59:19.311+0000] {subprocess.py:93} INFO - TenureGroup_13-24                        float64
+[2025-08-18T20:59:19.312+0000] {subprocess.py:93} INFO - TenureGroup_25-48                        float64
+[2025-08-18T20:59:19.312+0000] {subprocess.py:93} INFO - TenureGroup_49-60                        float64
+[2025-08-18T20:59:19.313+0000] {subprocess.py:93} INFO - TenureGroup_61+                          float64
+[2025-08-18T20:59:19.313+0000] {subprocess.py:93} INFO - dtype: object
+[2025-08-18T20:59:19.314+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,292 INFO Loaded features shape: (7032, 35), target shape: (7032,)
+[2025-08-18T20:59:19.315+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,292 INFO Unique classes in target: [0 1]
+[2025-08-18T20:59:19.315+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,292 INFO Class distribution: [5163 1869]
+[2025-08-18T20:59:19.316+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,292 INFO Original class distribution: {0: 5163, 1: 1869}
+[2025-08-18T20:59:19.316+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,292 INFO Class imbalance is acceptable (ratio: 2.76). No resampling applied.
+[2025-08-18T20:59:19.316+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,292 INFO Splitting data into train and test sets (80/20, stratified)...
+[2025-08-18T20:59:19.317+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,296 INFO Train set class distribution: {0: 4130, 1: 1495}
+[2025-08-18T20:59:19.317+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:19,296 INFO Test set class distribution: {0: 1033, 1: 374}
+[2025-08-18T20:59:20.725+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:20,725 INFO Training Logistic Regression...
+[2025-08-18T20:59:23.243+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:23,242 INFO Logistic Regression recall: 0.7807, accuracy: 0.7306, precision: 0.4958, f1: 0.6064
+[2025-08-18T20:59:23.253+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:23,253 INFO Classification report:
+[2025-08-18T20:59:23.254+0000] {subprocess.py:93} INFO -               precision    recall  f1-score   support
+[2025-08-18T20:59:23.255+0000] {subprocess.py:93} INFO - 
+[2025-08-18T20:59:23.256+0000] {subprocess.py:93} INFO -            0       0.90      0.71      0.80      1033
+[2025-08-18T20:59:23.256+0000] {subprocess.py:93} INFO -            1       0.50      0.78      0.61       374
+[2025-08-18T20:59:23.257+0000] {subprocess.py:93} INFO - 
+[2025-08-18T20:59:23.258+0000] {subprocess.py:93} INFO -     accuracy                           0.73      1407
+[2025-08-18T20:59:23.258+0000] {subprocess.py:93} INFO -    macro avg       0.70      0.75      0.70      1407
+[2025-08-18T20:59:23.259+0000] {subprocess.py:93} INFO - weighted avg       0.79      0.73      0.75      1407
+[2025-08-18T20:59:23.260+0000] {subprocess.py:93} INFO - 
+[2025-08-18T20:59:24.794+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:24,793 INFO Training Random Forest Classifier...
+[2025-08-18T20:59:26.234+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:26,234 INFO Random Forest recall: 0.4733, accuracy: 0.7953, precision: 0.6604, f1: 0.5514
+[2025-08-18T20:59:26.243+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:26,243 INFO Classification report:
+[2025-08-18T20:59:26.245+0000] {subprocess.py:93} INFO -               precision    recall  f1-score   support
+[2025-08-18T20:59:26.245+0000] {subprocess.py:93} INFO - 
+[2025-08-18T20:59:26.246+0000] {subprocess.py:93} INFO -            0       0.83      0.91      0.87      1033
+[2025-08-18T20:59:26.247+0000] {subprocess.py:93} INFO -            1       0.66      0.47      0.55       374
+[2025-08-18T20:59:26.247+0000] {subprocess.py:93} INFO - 
+[2025-08-18T20:59:26.248+0000] {subprocess.py:93} INFO -     accuracy                           0.80      1407
+[2025-08-18T20:59:26.248+0000] {subprocess.py:93} INFO -    macro avg       0.74      0.69      0.71      1407
+[2025-08-18T20:59:26.249+0000] {subprocess.py:93} INFO - weighted avg       0.78      0.80      0.78      1407
+[2025-08-18T20:59:26.250+0000] {subprocess.py:93} INFO - 
+[2025-08-18T20:59:26.341+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:26,341 INFO Best model (LogisticRegression) saved to models/churn_model.pkl with recall 0.7807
+[2025-08-18T20:59:34.358+0000] {subprocess.py:93} INFO - /home/***/.local/lib/python3.8/site-packages/mlflow/types/utils.py:407: UserWarning: Hint: Inferred schema contains integer column(s). Integer columns in Python cannot represent missing values. If your input data contains missing values at inference time, it will be encoded as floats and will cause a schema enforcement error. The best way to avoid this problem is to infer the model schema based on a realistic data sample (training dataset) that includes missing values. Alternatively, you can declare integer columns as doubles (float64) whenever these columns may have missing values. See `Handling Integers With Missing Values <https://www.mlflow.org/docs/latest/models.html#handling-integers-with-missing-values>`_ for more details.
+[2025-08-18T20:59:34.360+0000] {subprocess.py:93} INFO -   warnings.warn(
+[2025-08-18T20:59:34.362+0000] {subprocess.py:93} INFO - Successfully registered model 'churn_model'.
+[2025-08-18T20:59:34.363+0000] {subprocess.py:93} INFO - Created version '1' of model 'churn_model'.
+[2025-08-18T20:59:34.536+0000] {subprocess.py:93} INFO - Downloading artifacts:   0%|          | 0/7 [00:00<?, ?it/s]Downloading artifacts:  14%|█▍        | 1/7 [00:00<00:00, 144.69it/s]Downloading artifacts:  29%|██▊       | 2/7 [00:00<00:00, 244.87it/s]Downloading artifacts:  43%|████▎     | 3/7 [00:00<00:00, 302.42it/s]Downloading artifacts:  57%|█████▋    | 4/7 [00:00<00:00, 374.41it/s]Downloading artifacts:  71%|███████▏  | 5/7 [00:00<00:00, 453.84it/s]Downloading artifacts:  86%|████████▌ | 6/7 [00:00<00:00, 536.80it/s]Downloading artifacts: 100%|██████████| 7/7 [00:00<00:00, 605.04it/s]Downloading artifacts: 100%|██████████| 7/7 [00:00<00:00, 596.40it/s]
+[2025-08-18T20:59:34.537+0000] {subprocess.py:93} INFO - 2025-08-18 20:59:34,535 INFO Best model run_id written to /tmp/best_run_id.txt
+[2025-08-18T20:59:35.325+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-08-18T20:59:35.402+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=customer_churn_pipeline, task_id=model_training, execution_date=20250818T205835, start_date=20250818T205916, end_date=20250818T205935
+[2025-08-18T20:59:35.462+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-08-18T20:59:35.506+0000] {taskinstance.py:3312} INFO - 1 downstream tasks scheduled from follow-on schedule check

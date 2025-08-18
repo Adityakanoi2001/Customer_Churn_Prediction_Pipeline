@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/ymaner069/OneDrive%20-%20Comcast/GitRepos/Customer_Churn_Prediction_Pipeline/mlruns/484643199848566910/571d3e06f4564ababc70ab9a6b339086/artifacts
+end_time: 1755548517304
+entry_point_name: ''
+experiment_id: '484643199848566910'
+lifecycle_stage: active
+run_id: 571d3e06f4564ababc70ab9a6b339086
+run_name: LogisticRegression
+run_uuid: 571d3e06f4564ababc70ab9a6b339086
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1755548514841
+status: 3
+tags: []
+user_id: airflow

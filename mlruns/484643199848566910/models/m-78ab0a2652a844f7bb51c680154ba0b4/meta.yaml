@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/ymaner069/OneDrive%20-%20Comcast/GitRepos/Customer_Churn_Prediction_Pipeline/mlruns/484643199848566910/models/m-78ab0a2652a844f7bb51c680154ba0b4/artifacts
+creation_timestamp: 1755537986445
+experiment_id: '484643199848566910'
+last_updated_timestamp: 1755537996143
+model_id: m-78ab0a2652a844f7bb51c680154ba0b4
+model_type: null
+name: model
+source_run_id: null
+status: 2
+status_message: null

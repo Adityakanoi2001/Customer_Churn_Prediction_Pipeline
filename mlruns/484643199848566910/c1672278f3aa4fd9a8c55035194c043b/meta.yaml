@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/ymaner069/OneDrive%20-%20Comcast/GitRepos/Customer_Churn_Prediction_Pipeline/mlruns/484643199848566910/c1672278f3aa4fd9a8c55035194c043b/artifacts
+end_time: 1755537875046
+entry_point_name: ''
+experiment_id: '484643199848566910'
+lifecycle_stage: active
+run_id: c1672278f3aa4fd9a8c55035194c043b
+run_name: RandomForest
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1755537874192
+status: 3
+tags: []
+user_id: ymaner069

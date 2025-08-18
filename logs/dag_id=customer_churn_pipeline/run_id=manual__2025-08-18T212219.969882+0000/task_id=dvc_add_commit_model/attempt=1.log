@@ -1,0 +1,38 @@
+[2025-08-18T21:24:30.034+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_churn_pipeline.dvc_add_commit_model manual__2025-08-18T21:22:19.969882+00:00 [queued]>
+[2025-08-18T21:24:30.047+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_churn_pipeline.dvc_add_commit_model manual__2025-08-18T21:22:19.969882+00:00 [queued]>
+[2025-08-18T21:24:30.049+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2025-08-18T21:24:30.065+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): dvc_add_commit_model> on 2025-08-18 21:22:19.969882+00:00
+[2025-08-18T21:24:30.071+0000] {standard_task_runner.py:60} INFO - Started process 2612 to run task
+[2025-08-18T21:24:30.076+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'customer_churn_pipeline', 'dvc_add_commit_model', 'manual__2025-08-18T21:22:19.969882+00:00', '--job-id', '55', '--raw', '--subdir', 'DAGS_FOLDER/customer_churn_pipeline_dag.py', '--cfg-path', '/tmp/tmpe3i33x1j']
+[2025-08-18T21:24:30.079+0000] {standard_task_runner.py:88} INFO - Job 55: Subtask dvc_add_commit_model
+[2025-08-18T21:24:30.144+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_churn_pipeline.dvc_add_commit_model manual__2025-08-18T21:22:19.969882+00:00 [running]> on host 2e4674d7276b
+[2025-08-18T21:24:30.246+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='customer_churn_pipeline' AIRFLOW_CTX_TASK_ID='dvc_add_commit_model' AIRFLOW_CTX_EXECUTION_DATE='2025-08-18T21:22:19.969882+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-08-18T21:22:19.969882+00:00'
+[2025-08-18T21:24:30.251+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-08-18T21:24:30.256+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', "cd /opt/***/Customer_Churn_Prediction_Pipeline && git config --global --add safe.directory /opt/***/Customer_Churn_Prediction_Pipeline && dvc add models/churn_model.pkl && git add models/churn_model.pkl.dvc models/.gitignore && git commit -m 'Add trained model to DVC' || echo 'Git commit completed or nothing to commit'"]
+[2025-08-18T21:24:30.269+0000] {subprocess.py:86} INFO - Output:
+[2025-08-18T21:24:43.017+0000] {subprocess.py:93} INFO - 
+[2025-08-18T21:24:43.019+0000] {subprocess.py:93} INFO - To track the changes with git, run:
+[2025-08-18T21:24:43.020+0000] {subprocess.py:93} INFO - 
+[2025-08-18T21:24:43.020+0000] {subprocess.py:93} INFO - 	git add models/churn_model.pkl.dvc
+[2025-08-18T21:24:43.021+0000] {subprocess.py:93} INFO - 
+[2025-08-18T21:24:43.022+0000] {subprocess.py:93} INFO - To enable auto staging, run:
+[2025-08-18T21:24:43.023+0000] {subprocess.py:93} INFO - 
+[2025-08-18T21:24:43.023+0000] {subprocess.py:93} INFO - 	dvc config core.autostage true
+[2025-08-18T21:24:43.906+0000] {subprocess.py:93} INFO - Author identity unknown
+[2025-08-18T21:24:43.907+0000] {subprocess.py:93} INFO - 
+[2025-08-18T21:24:43.909+0000] {subprocess.py:93} INFO - *** Please tell me who you are.
+[2025-08-18T21:24:43.913+0000] {subprocess.py:93} INFO - 
+[2025-08-18T21:24:43.914+0000] {subprocess.py:93} INFO - Run
+[2025-08-18T21:24:43.915+0000] {subprocess.py:93} INFO - 
+[2025-08-18T21:24:43.916+0000] {subprocess.py:93} INFO -   git config --global user.email "you@example.com"
+[2025-08-18T21:24:43.918+0000] {subprocess.py:93} INFO -   git config --global user.name "Your Name"
+[2025-08-18T21:24:43.919+0000] {subprocess.py:93} INFO - 
+[2025-08-18T21:24:43.919+0000] {subprocess.py:93} INFO - to set your account's default identity.
+[2025-08-18T21:24:43.920+0000] {subprocess.py:93} INFO - Omit --global to set the identity only in this repository.
+[2025-08-18T21:24:43.921+0000] {subprocess.py:93} INFO - 
+[2025-08-18T21:24:43.922+0000] {subprocess.py:93} INFO - fatal: unable to auto-detect email address (got '***@2e4674d7276b.(none)')
+[2025-08-18T21:24:43.924+0000] {subprocess.py:93} INFO - Git commit completed or nothing to commit
+[2025-08-18T21:24:43.925+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-08-18T21:24:43.972+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=customer_churn_pipeline, task_id=dvc_add_commit_model, execution_date=20250818T212219, start_date=20250818T212430, end_date=20250818T212443
+[2025-08-18T21:24:44.027+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-08-18T21:24:44.055+0000] {taskinstance.py:3312} INFO - 1 downstream tasks scheduled from follow-on schedule check

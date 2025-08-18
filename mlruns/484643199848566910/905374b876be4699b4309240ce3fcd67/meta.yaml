@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/ymaner069/OneDrive%20-%20Comcast/GitRepos/Customer_Churn_Prediction_Pipeline/mlruns/484643199848566910/905374b876be4699b4309240ce3fcd67/artifacts
+end_time: 1755537056770
+entry_point_name: ''
+experiment_id: '484643199848566910'
+lifecycle_stage: active
+run_id: 905374b876be4699b4309240ce3fcd67
+run_name: LogisticRegression
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1755537056577
+status: 3
+tags: []
+user_id: ymaner069

@@ -1,0 +1,61 @@
+artifact_path: file:///C:/Users/ymaner069/OneDrive%20-%20Comcast/GitRepos/Customer_Churn_Prediction_Pipeline/mlruns/484643199848566910/models/m-b24fdbcbf4274210aaf42893f2559d3a/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.5
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.1
+is_signature_from_type_hint: false
+mlflow_version: 3.2.0
+model_id: m-b24fdbcbf4274210aaf42893f2559d3a
+model_size_bytes: 8859
+model_uuid: m-b24fdbcbf4274210aaf42893f2559d3a
+prompts: null
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "double", "name": "gender", "required": true}, {"type": "double",
+    "name": "SeniorCitizen", "required": true}, {"type": "double", "name": "Partner",
+    "required": true}, {"type": "double", "name": "Dependents", "required": true},
+    {"type": "double", "name": "tenure", "required": true}, {"type": "double", "name":
+    "PhoneService", "required": true}, {"type": "double", "name": "PaperlessBilling",
+    "required": true}, {"type": "double", "name": "MonthlyCharges", "required": true},
+    {"type": "double", "name": "TotalCharges", "required": true}, {"type": "double",
+    "name": "TotalChargesPerTenure", "required": true}, {"type": "double", "name":
+    "MultipleLines_No phone service", "required": true}, {"type": "double", "name":
+    "MultipleLines_Yes", "required": true}, {"type": "double", "name": "InternetService_Fiber
+    optic", "required": true}, {"type": "double", "name": "InternetService_No", "required":
+    true}, {"type": "double", "name": "OnlineSecurity_No internet service", "required":
+    true}, {"type": "double", "name": "OnlineSecurity_Yes", "required": true}, {"type":
+    "double", "name": "OnlineBackup_No internet service", "required": true}, {"type":
+    "double", "name": "OnlineBackup_Yes", "required": true}, {"type": "double", "name":
+    "DeviceProtection_No internet service", "required": true}, {"type": "double",
+    "name": "DeviceProtection_Yes", "required": true}, {"type": "double", "name":
+    "TechSupport_No internet service", "required": true}, {"type": "double", "name":
+    "TechSupport_Yes", "required": true}, {"type": "double", "name": "StreamingTV_No
+    internet service", "required": true}, {"type": "double", "name": "StreamingTV_Yes",
+    "required": true}, {"type": "double", "name": "StreamingMovies_No internet service",
+    "required": true}, {"type": "double", "name": "StreamingMovies_Yes", "required":
+    true}, {"type": "double", "name": "Contract_One year", "required": true}, {"type":
+    "double", "name": "Contract_Two year", "required": true}, {"type": "double", "name":
+    "PaymentMethod_Credit card (automatic)", "required": true}, {"type": "double",
+    "name": "PaymentMethod_Electronic check", "required": true}, {"type": "double",
+    "name": "PaymentMethod_Mailed check", "required": true}, {"type": "double", "name":
+    "TenureGroup_13-24", "required": true}, {"type": "double", "name": "TenureGroup_25-48",
+    "required": true}, {"type": "double", "name": "TenureGroup_49-60", "required":
+    true}, {"type": "double", "name": "TenureGroup_61+", "required": true}]'
+  outputs: '[{"type": "integer", "required": true}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-08-18 17:24:35.135657'

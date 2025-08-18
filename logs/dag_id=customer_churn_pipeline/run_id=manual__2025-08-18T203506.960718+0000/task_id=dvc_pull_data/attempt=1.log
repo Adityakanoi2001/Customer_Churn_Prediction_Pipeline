@@ -1,0 +1,18 @@
+[2025-08-18T20:35:07.981+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_churn_pipeline.dvc_pull_data manual__2025-08-18T20:35:06.960718+00:00 [queued]>
+[2025-08-18T20:35:08.001+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_churn_pipeline.dvc_pull_data manual__2025-08-18T20:35:06.960718+00:00 [queued]>
+[2025-08-18T20:35:08.003+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2025-08-18T20:35:08.029+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): dvc_pull_data> on 2025-08-18 20:35:06.960718+00:00
+[2025-08-18T20:35:08.036+0000] {standard_task_runner.py:60} INFO - Started process 534 to run task
+[2025-08-18T20:35:08.042+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'customer_churn_pipeline', 'dvc_pull_data', 'manual__2025-08-18T20:35:06.960718+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/customer_churn_pipeline_dag.py', '--cfg-path', '/tmp/tmpro3y1z9l']
+[2025-08-18T20:35:08.047+0000] {standard_task_runner.py:88} INFO - Job 9: Subtask dvc_pull_data
+[2025-08-18T20:35:08.166+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_churn_pipeline.dvc_pull_data manual__2025-08-18T20:35:06.960718+00:00 [running]> on host 2e4674d7276b
+[2025-08-18T20:35:08.321+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='customer_churn_pipeline' AIRFLOW_CTX_TASK_ID='dvc_pull_data' AIRFLOW_CTX_EXECUTION_DATE='2025-08-18T20:35:06.960718+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-08-18T20:35:06.960718+00:00'
+[2025-08-18T20:35:08.326+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-08-18T20:35:08.330+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/Customer_Churn_Prediction_Pipeline && dvc pull --force']
+[2025-08-18T20:35:08.360+0000] {subprocess.py:86} INFO - Output:
+[2025-08-18T20:35:19.964+0000] {subprocess.py:93} INFO - No remote provided and no default remote set.
+[2025-08-18T20:35:19.965+0000] {subprocess.py:93} INFO - Everything is up to date.
+[2025-08-18T20:35:20.175+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-08-18T20:35:20.227+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=customer_churn_pipeline, task_id=dvc_pull_data, execution_date=20250818T203506, start_date=20250818T203507, end_date=20250818T203520
+[2025-08-18T20:35:20.272+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-08-18T20:35:20.317+0000] {taskinstance.py:3312} INFO - 1 downstream tasks scheduled from follow-on schedule check

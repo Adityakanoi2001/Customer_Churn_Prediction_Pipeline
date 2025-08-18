@@ -1,0 +1,27 @@
+[2025-08-18T19:34:30.994+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_churn_pipeline.dvc_pull_data manual__2025-08-18T19:17:52.379283+00:00 [queued]>
+[2025-08-18T19:34:31.002+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_churn_pipeline.dvc_pull_data manual__2025-08-18T19:17:52.379283+00:00 [queued]>
+[2025-08-18T19:34:31.003+0000] {taskinstance.py:2193} INFO - Starting attempt 2 of 2
+[2025-08-18T19:34:31.014+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): dvc_pull_data> on 2025-08-18 19:17:52.379283+00:00
+[2025-08-18T19:34:31.018+0000] {standard_task_runner.py:60} INFO - Started process 250 to run task
+[2025-08-18T19:34:31.021+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'customer_churn_pipeline', 'dvc_pull_data', 'manual__2025-08-18T19:17:52.379283+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/customer_churn_pipeline_dag.py', '--cfg-path', '/tmp/tmp2aqd1uuy']
+[2025-08-18T19:34:31.023+0000] {standard_task_runner.py:88} INFO - Job 17: Subtask dvc_pull_data
+[2025-08-18T19:34:31.067+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_churn_pipeline.dvc_pull_data manual__2025-08-18T19:17:52.379283+00:00 [running]> on host 9f39316eaa65
+[2025-08-18T19:34:31.120+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='customer_churn_pipeline' AIRFLOW_CTX_TASK_ID='dvc_pull_data' AIRFLOW_CTX_EXECUTION_DATE='2025-08-18T19:17:52.379283+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-08-18T19:17:52.379283+00:00'
+[2025-08-18T19:34:31.121+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-08-18T19:34:31.123+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/Customer_Churn_Prediction_Pipeline && dvc pull --force']
+[2025-08-18T19:34:31.131+0000] {subprocess.py:86} INFO - Output:
+[2025-08-18T19:34:31.132+0000] {subprocess.py:93} INFO - /usr/bin/bash: line 1: dvc: command not found
+[2025-08-18T19:34:31.133+0000] {subprocess.py:97} INFO - Command exited with return code 127
+[2025-08-18T19:34:31.141+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 127.
+[2025-08-18T19:34:31.144+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=customer_churn_pipeline, task_id=dvc_pull_data, execution_date=20250818T191752, start_date=20250818T193430, end_date=20250818T193431
+[2025-08-18T19:34:31.155+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 17 for task dvc_pull_data (Bash command failed. The command returned a non-zero exit code 127.; 250)
+[2025-08-18T19:34:31.194+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-08-18T19:34:31.213+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

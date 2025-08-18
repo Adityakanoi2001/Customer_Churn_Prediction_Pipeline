@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/ymaner069/OneDrive%20-%20Comcast/GitRepos/Customer_Churn_Prediction_Pipeline/mlruns/484643199848566910/f54f6307a6ea4affafa6cc887931530e/artifacts
+end_time: 1755547856645
+entry_point_name: ''
+experiment_id: '484643199848566910'
+lifecycle_stage: active
+run_id: f54f6307a6ea4affafa6cc887931530e
+run_name: RandomForest
+run_uuid: f54f6307a6ea4affafa6cc887931530e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1755547854554
+status: 3
+tags: []
+user_id: airflow

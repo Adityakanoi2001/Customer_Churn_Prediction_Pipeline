@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1755551208517
+current_stage: None
+description: null
+last_updated_timestamp: 1755551208517
+name: churn_model
+run_id: e45a2c3f2fe5435bb5ee5c51f9930955
+run_link: null
+source: file:///opt/airflow/Customer_Churn_Prediction_Pipeline/mlruns/e45a2c3f2fe5435bb5ee5c51f9930955/artifacts/model
+status: READY
+status_message: null
+storage_location: file:///opt/airflow/Customer_Churn_Prediction_Pipeline/mlruns/e45a2c3f2fe5435bb5ee5c51f9930955/artifacts/model
+user_id: null
+version: 2

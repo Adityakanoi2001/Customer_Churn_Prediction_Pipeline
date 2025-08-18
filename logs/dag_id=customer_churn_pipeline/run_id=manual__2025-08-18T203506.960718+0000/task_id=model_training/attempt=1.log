@@ -1,0 +1,62 @@
+[2025-08-18T20:35:51.350+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_churn_pipeline.model_training manual__2025-08-18T20:35:06.960718+00:00 [queued]>
+[2025-08-18T20:35:51.365+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_churn_pipeline.model_training manual__2025-08-18T20:35:06.960718+00:00 [queued]>
+[2025-08-18T20:35:51.366+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2025-08-18T20:35:51.388+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): model_training> on 2025-08-18 20:35:06.960718+00:00
+[2025-08-18T20:35:51.395+0000] {standard_task_runner.py:60} INFO - Started process 675 to run task
+[2025-08-18T20:35:51.401+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'customer_churn_pipeline', 'model_training', 'manual__2025-08-18T20:35:06.960718+00:00', '--job-id', '14', '--raw', '--subdir', 'DAGS_FOLDER/customer_churn_pipeline_dag.py', '--cfg-path', '/tmp/tmpufwqy_k7']
+[2025-08-18T20:35:51.405+0000] {standard_task_runner.py:88} INFO - Job 14: Subtask model_training
+[2025-08-18T20:35:51.484+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_churn_pipeline.model_training manual__2025-08-18T20:35:06.960718+00:00 [running]> on host 2e4674d7276b
+[2025-08-18T20:35:51.584+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='customer_churn_pipeline' AIRFLOW_CTX_TASK_ID='model_training' AIRFLOW_CTX_EXECUTION_DATE='2025-08-18T20:35:06.960718+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-08-18T20:35:06.960718+00:00'
+[2025-08-18T20:35:51.586+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-08-18T20:35:51.588+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/Customer_Churn_Prediction_Pipeline && python src/train_model.py']
+[2025-08-18T20:35:51.602+0000] {subprocess.py:86} INFO - Output:
+[2025-08-18T20:35:54.876+0000] {subprocess.py:93} INFO - 2025-08-18 20:35:54,875 INFO Loading features and target from feature store...
+[2025-08-18T20:35:54.877+0000] {subprocess.py:93} INFO - 2025-08-18 20:35:54,876 INFO Connecting to SQLite DB at data/features/churn_features.db
+[2025-08-18T20:35:54.889+0000] {subprocess.py:93} INFO - 2025-08-18 20:35:54,888 INFO Available tables: ['churn_features']
+[2025-08-18T20:35:55.166+0000] {subprocess.py:93} INFO - 2025-08-18 20:35:55,166 INFO Retrieved 7032 rows and 36 columns from table churn_features
+[2025-08-18T20:35:55.170+0000] {subprocess.py:93} INFO - 2025-08-18 20:35:55,170 INFO Features shape: (7032, 35), Target shape: (7032,)
+[2025-08-18T20:35:55.172+0000] {subprocess.py:93} INFO - 2025-08-18 20:35:55,171 INFO Loaded features shape: (7032, 35), target shape: (7032,)
+[2025-08-18T20:35:55.173+0000] {subprocess.py:93} INFO - 2025-08-18 20:35:55,171 INFO Splitting data into train and test sets (80/20, stratified)...
+[2025-08-18T20:35:56.782+0000] {subprocess.py:93} INFO - 2025-08-18 20:35:56,782 INFO Training Logistic Regression...
+[2025-08-18T20:35:58.547+0000] {subprocess.py:93} INFO - 2025-08-18 20:35:58,546 INFO Logistic Regression recall: 0.5187, accuracy: 0.7946, precision: 0.6403, f1: 0.5731
+[2025-08-18T20:35:58.556+0000] {subprocess.py:93} INFO - 2025-08-18 20:35:58,555 INFO Classification report:
+[2025-08-18T20:35:58.557+0000] {subprocess.py:93} INFO -               precision    recall  f1-score   support
+[2025-08-18T20:35:58.557+0000] {subprocess.py:93} INFO - 
+[2025-08-18T20:35:58.558+0000] {subprocess.py:93} INFO -            0       0.84      0.89      0.86      1033
+[2025-08-18T20:35:58.559+0000] {subprocess.py:93} INFO -            1       0.64      0.52      0.57       374
+[2025-08-18T20:35:58.560+0000] {subprocess.py:93} INFO - 
+[2025-08-18T20:35:58.561+0000] {subprocess.py:93} INFO -     accuracy                           0.79      1407
+[2025-08-18T20:35:58.561+0000] {subprocess.py:93} INFO -    macro avg       0.74      0.71      0.72      1407
+[2025-08-18T20:35:58.562+0000] {subprocess.py:93} INFO - weighted avg       0.78      0.79      0.79      1407
+[2025-08-18T20:35:58.563+0000] {subprocess.py:93} INFO - 
+[2025-08-18T20:35:59.309+0000] {subprocess.py:93} INFO - 2025-08-18 20:35:59,309 INFO Training Random Forest Classifier...
+[2025-08-18T20:36:00.867+0000] {subprocess.py:93} INFO - 2025-08-18 20:36:00,867 INFO Random Forest recall: 0.4706, accuracy: 0.7910, precision: 0.6471, f1: 0.5449
+[2025-08-18T20:36:00.886+0000] {subprocess.py:93} INFO - 2025-08-18 20:36:00,886 INFO Classification report:
+[2025-08-18T20:36:00.889+0000] {subprocess.py:93} INFO -               precision    recall  f1-score   support
+[2025-08-18T20:36:00.891+0000] {subprocess.py:93} INFO - 
+[2025-08-18T20:36:00.892+0000] {subprocess.py:93} INFO -            0       0.83      0.91      0.86      1033
+[2025-08-18T20:36:00.895+0000] {subprocess.py:93} INFO -            1       0.65      0.47      0.54       374
+[2025-08-18T20:36:00.896+0000] {subprocess.py:93} INFO - 
+[2025-08-18T20:36:00.898+0000] {subprocess.py:93} INFO -     accuracy                           0.79      1407
+[2025-08-18T20:36:00.899+0000] {subprocess.py:93} INFO -    macro avg       0.74      0.69      0.70      1407
+[2025-08-18T20:36:00.901+0000] {subprocess.py:93} INFO - weighted avg       0.78      0.79      0.78      1407
+[2025-08-18T20:36:00.902+0000] {subprocess.py:93} INFO - 
+[2025-08-18T20:36:01.082+0000] {subprocess.py:93} INFO - 2025-08-18 20:36:01,081 INFO Best model (LogisticRegression) saved to models/churn_model.pkl with recall 0.5187
+[2025-08-18T20:36:01.850+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-18T20:36:01.851+0000] {subprocess.py:93} INFO -   File "src/train_model.py", line 132, in <module>
+[2025-08-18T20:36:01.852+0000] {subprocess.py:93} INFO -     mlflow.sklearn.log_model(
+[2025-08-18T20:36:01.853+0000] {subprocess.py:93} INFO - TypeError: log_model() got an unexpected keyword argument 'name'
+[2025-08-18T20:36:02.238+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-08-18T20:36:02.264+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-08-18T20:36:02.271+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=customer_churn_pipeline, task_id=model_training, execution_date=20250818T203506, start_date=20250818T203551, end_date=20250818T203602
+[2025-08-18T20:36:02.296+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 14 for task model_training (Bash command failed. The command returned a non-zero exit code 1.; 675)
+[2025-08-18T20:36:02.317+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-08-18T20:36:02.343+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

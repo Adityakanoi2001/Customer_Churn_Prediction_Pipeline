@@ -1,0 +1,15 @@
+artifact_uri: file:///opt/airflow/Customer_Churn_Prediction_Pipeline/mlruns/e45a2c3f2fe5435bb5ee5c51f9930955/artifacts
+end_time: 1755551209300
+entry_point_name: ''
+experiment_id: '520670040252671663'
+lifecycle_stage: active
+run_id: e45a2c3f2fe5435bb5ee5c51f9930955
+run_name: LogisticRegression
+run_uuid: e45a2c3f2fe5435bb5ee5c51f9930955
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1755551199859
+status: 3
+tags: []
+user_id: airflow

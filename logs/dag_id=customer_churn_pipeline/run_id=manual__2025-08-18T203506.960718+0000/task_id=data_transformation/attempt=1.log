@@ -1,0 +1,18 @@
+[2025-08-18T20:35:45.186+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_churn_pipeline.data_transformation manual__2025-08-18T20:35:06.960718+00:00 [queued]>
+[2025-08-18T20:35:45.201+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_churn_pipeline.data_transformation manual__2025-08-18T20:35:06.960718+00:00 [queued]>
+[2025-08-18T20:35:45.203+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2025-08-18T20:35:45.222+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): data_transformation> on 2025-08-18 20:35:06.960718+00:00
+[2025-08-18T20:35:45.229+0000] {standard_task_runner.py:60} INFO - Started process 644 to run task
+[2025-08-18T20:35:45.234+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'customer_churn_pipeline', 'data_transformation', 'manual__2025-08-18T20:35:06.960718+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/customer_churn_pipeline_dag.py', '--cfg-path', '/tmp/tmpxgrewnu4']
+[2025-08-18T20:35:45.237+0000] {standard_task_runner.py:88} INFO - Job 13: Subtask data_transformation
+[2025-08-18T20:35:45.305+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_churn_pipeline.data_transformation manual__2025-08-18T20:35:06.960718+00:00 [running]> on host 2e4674d7276b
+[2025-08-18T20:35:45.403+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='customer_churn_pipeline' AIRFLOW_CTX_TASK_ID='data_transformation' AIRFLOW_CTX_EXECUTION_DATE='2025-08-18T20:35:06.960718+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-08-18T20:35:06.960718+00:00'
+[2025-08-18T20:35:45.406+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-08-18T20:35:45.408+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/Customer_Churn_Prediction_Pipeline && python src/data_transformation.py']
+[2025-08-18T20:35:45.421+0000] {subprocess.py:86} INFO - Output:
+[2025-08-18T20:35:49.977+0000] {subprocess.py:93} INFO - Dropping rows with missing values.
+[2025-08-18T20:35:49.978+0000] {subprocess.py:93} INFO - Feature engineered and scaled data saved to SQLite DB at data/features/churn_features.db (table: churn_features)
+[2025-08-18T20:35:50.120+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-08-18T20:35:50.155+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=customer_churn_pipeline, task_id=data_transformation, execution_date=20250818T203506, start_date=20250818T203545, end_date=20250818T203550
+[2025-08-18T20:35:50.215+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-08-18T20:35:50.252+0000] {taskinstance.py:3312} INFO - 1 downstream tasks scheduled from follow-on schedule check
