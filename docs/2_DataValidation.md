@@ -38,26 +38,6 @@ The `data_validation.py` script ensures that the ingested data is clean, consist
 7. **Output Cleaned Data (Optional):**  
    - Optionally outputs a cleaned version of the data for downstream use.
 
----
-
-## Mermaid Flowchart
-
-```mermaid
-flowchart TD
-    A[Start Validation] --> B[Load ingested data]
-    B --> C[Check for missing values]
-    C --> D[Validate data types]
-    D --> E[Check for duplicates]
-    E --> F[Validate value ranges & categories]
-    F --> G[Generate validation report]
-    G --> H{Critical issues?}
-    H -- Yes --> I[Log error & halt/raise warning] --> J[Output cleaned data (optional)]
-    H -- No --> J
-    J --> K[Finish]
-```
-
----
-
 ## Inputs
 
 - Ingested data file (e.g., `data/processed/ingested_data.csv`)
