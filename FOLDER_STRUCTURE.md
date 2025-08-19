@@ -1,32 +1,57 @@
 # Project Folder Structure
 
-This project follows a modular structure for an end-to-end data management pipeline for customer churn prediction:
+Below is the recommended folder structure for your Customer Churn Prediction Pipeline project, including all code, data, models, Airflow DAGs, logs, deployment artifacts, and documentation files.
 
 ```
 Customer_Churn_Prediction_Pipeline/
 │
 ├── data/
-│   ├── raw/         # Raw ingested data (by source, type, timestamp)
-│   │   ├── train/   # Training data (raw)
-│   │   └── test/    # Test data (raw)
-│   ├── processed/   # Cleaned and preprocessed data
-│   ├── features/    # Feature-engineered datasets
-│   └── external/    # Data from third-party APIs or external sources
+│   ├── raw/
+│   │   └── Telco-Dataset.csv
+│   └── processed/
 │
-├── logs/            # Ingestion, validation, and pipeline logs
-├── models/          # Trained and versioned ML models
-├── src/             # Source code (ingestion, validation, transformation, orchestration)
-├── docker/          # Docker-related files for containerization
-├── dvc/             # DVC metadata and pipelines for data versioning
-├── dags/            # DAG definitions for pipeline orchestration (e.g., Airflow)
-├── reports/         # EDA images and reports (by date)
-├── README.md        # Project overview and instructions
-└── customer_churn_pipeline_overview.ipynb  # Main pipeline notebook
+├── models/
+│   └── churn_model.pkl
+│
+├── src/
+│   ├── ingestion.py
+│   ├── data_validation.py
+│   ├── preparation.py
+│   ├── data_transformation.py
+│   ├── load_features.py
+│   ├── train_model.py
+│   ├── model_evaluation.py
+│   └── deploy_model.py
+│
+├── dags/
+│   └── customer_churn_pipeline_dag.py
+│
+├── logs/
+│   └── (log files)
+│
+├── deployment/
+│   └── (deployment artifacts)
+│
+├── doc/
+│   ├── pipeline_overview.md
+│   ├── ingestion.md
+│   ├── data_validation.md
+│   ├── preparation.md
+│   ├── data_transformation.md
+│   ├── train_model_and_load_features.md
+│   ├── model_evaluation.md
+│   ├── deploy_model.md
+│   └── data_versioning.md
+│
+├── .dvc/
+│   └── (DVC config files)
+│
+├── .gitignore
+├── requirements.txt
+└── README.md
 ```
 
-- **data/raw/**: Partitioned by source, type, and timestamp for efficient storage and retrieval.
-- **logs/**: Stores logs for monitoring and debugging.
-- **models/**: Contains serialized and versioned models.
-- **src/**: All scripts and modules for pipeline automation.
-
-This structure supports scalability, reproducibility, and best practices in data engineering and MLOps.
+> **Tip:**  
+> - Place all your Markdown documentation files in the `doc/` folder.
+> - Adjust or expand the structure as needed for your project.
+> - This structure supports clarity, modularity, and easy navigation for both code and documentation.
