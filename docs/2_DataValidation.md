@@ -51,9 +51,8 @@ flowchart TD
     E --> F[Validate value ranges & categories]
     F --> G[Generate validation report]
     G --> H{Critical issues?}
-    H -- Yes --> I[Log error & halt/raise warning]
-    H -- No --> J[Output cleaned data (optional)]
-    I --> J
+    H -- Yes --> I[Log error & halt/raise warning] --> J[Output cleaned data (optional)]
+    H -- No --> J
     J --> K[Finish]
 ```
 
