@@ -36,3 +36,33 @@
 2025-08-18 21:24:48,234 INFO Deployment Timestamp: 2025-08-18T21:24:48.007428
 2025-08-18 21:24:48,234 INFO Prediction Script: deployment/predict.py
 2025-08-18 21:24:48,235 INFO ==================================================
+2025-08-19 17:47:29,383 INFO Starting model deployment...
+2025-08-19 17:47:29,384 INFO Loaded best run ID: 758f77ef4c794795bdfdff4c02503bcc
+2025-08-19 17:47:29,384 INFO Loading model from MLflow run: 758f77ef4c794795bdfdff4c02503bcc
+2025-08-19 17:47:30,739 INFO Model loaded successfully from MLflow
+2025-08-19 17:47:30,749 INFO Model deployed to: deployment/churn_model_deployed.pkl
+2025-08-19 17:47:30,760 INFO Deployed model verification successful
+2025-08-19 17:47:30,763 INFO Loaded best run ID: 758f77ef4c794795bdfdff4c02503bcc
+2025-08-19 17:47:31,014 INFO Latest model version: 4
+2025-08-19 17:47:31,020 INFO Model info saved to deployment/model_info.txt
+2025-08-19 17:47:31,020 ERROR Deployment failed: name 'create_prediction_script' is not defined
+2025-08-19 17:53:09,266 INFO Starting model deployment...
+2025-08-19 17:53:09,267 INFO Loaded best run ID: a20986ad69c34568ab9b4cdb0a0c41f5
+2025-08-19 17:53:09,267 INFO Loading model from MLflow run: a20986ad69c34568ab9b4cdb0a0c41f5
+2025-08-19 17:53:10,585 INFO Model loaded successfully from MLflow
+2025-08-19 17:53:10,593 INFO Model deployed to: deployment/churn_model_deployed.pkl
+2025-08-19 17:53:10,595 INFO Loaded best run ID: a20986ad69c34568ab9b4cdb0a0c41f5
+2025-08-19 17:53:10,802 INFO Latest model version: 4
+2025-08-19 17:53:10,814 INFO Model info saved to deployment/model_info.txt
+2025-08-19 17:53:10,828 INFO Prediction script created at deployment/predict.py
+2025-08-19 17:53:10,835 INFO API endpoint script created at deployment/api.py
+2025-08-19 17:53:10,843 INFO Requirements file created at deployment/requirements.txt
+2025-08-19 17:53:10,857 INFO Deployment summary created at: deployment/deployment_summary.md
+2025-08-19 17:53:10,858 INFO ==================================================
+2025-08-19 17:53:10,859 INFO MODEL DEPLOYMENT SUCCESSFUL!
+2025-08-19 17:53:10,860 INFO ==================================================
+2025-08-19 17:53:10,860 INFO Deployed Model Path: deployment/churn_model_deployed.pkl
+2025-08-19 17:53:10,861 INFO Model Source: mlflow
+2025-08-19 17:53:10,861 INFO Deployment Timestamp: 2025-08-19T17:53:10.594679
+2025-08-19 17:53:10,862 INFO Prediction Script: deployment/predict.py
+2025-08-19 17:53:10,863 INFO ==================================================

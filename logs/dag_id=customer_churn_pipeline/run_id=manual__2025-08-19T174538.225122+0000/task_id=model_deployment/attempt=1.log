@@ -1,0 +1,44 @@
+[2025-08-19T17:47:26.361+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_churn_pipeline.model_deployment manual__2025-08-19T17:45:38.225122+00:00 [queued]>
+[2025-08-19T17:47:26.378+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_churn_pipeline.model_deployment manual__2025-08-19T17:45:38.225122+00:00 [queued]>
+[2025-08-19T17:47:26.379+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2025-08-19T17:47:26.404+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): model_deployment> on 2025-08-19 17:45:38.225122+00:00
+[2025-08-19T17:47:26.416+0000] {standard_task_runner.py:60} INFO - Started process 1038 to run task
+[2025-08-19T17:47:26.423+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'customer_churn_pipeline', 'model_deployment', 'manual__2025-08-19T17:45:38.225122+00:00', '--job-id', '25', '--raw', '--subdir', 'DAGS_FOLDER/customer_churn_pipeline_dag.py', '--cfg-path', '/tmp/tmprvi9vjs8']
+[2025-08-19T17:47:26.428+0000] {standard_task_runner.py:88} INFO - Job 25: Subtask model_deployment
+[2025-08-19T17:47:26.522+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_churn_pipeline.model_deployment manual__2025-08-19T17:45:38.225122+00:00 [running]> on host dc08f7cf7bac
+[2025-08-19T17:47:26.663+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='customer_churn_pipeline' AIRFLOW_CTX_TASK_ID='model_deployment' AIRFLOW_CTX_EXECUTION_DATE='2025-08-19T17:45:38.225122+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-08-19T17:45:38.225122+00:00'
+[2025-08-19T17:47:26.668+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-08-19T17:47:26.671+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/Customer_Churn_Prediction_Pipeline && python src/deploy_model.py']
+[2025-08-19T17:47:26.691+0000] {subprocess.py:86} INFO - Output:
+[2025-08-19T17:47:29.383+0000] {subprocess.py:93} INFO - 2025-08-19 17:47:29,383 INFO Starting model deployment...
+[2025-08-19T17:47:29.384+0000] {subprocess.py:93} INFO - 2025-08-19 17:47:29,384 INFO Loaded best run ID: 758f77ef4c794795bdfdff4c02503bcc
+[2025-08-19T17:47:29.385+0000] {subprocess.py:93} INFO - 2025-08-19 17:47:29,384 INFO Loading model from MLflow run: 758f77ef4c794795bdfdff4c02503bcc
+[2025-08-19T17:47:30.740+0000] {subprocess.py:93} INFO - 2025-08-19 17:47:30,739 INFO Model loaded successfully from MLflow
+[2025-08-19T17:47:30.750+0000] {subprocess.py:93} INFO - 2025-08-19 17:47:30,749 INFO Model deployed to: deployment/churn_model_deployed.pkl
+[2025-08-19T17:47:30.761+0000] {subprocess.py:93} INFO - 2025-08-19 17:47:30,760 INFO Deployed model verification successful
+[2025-08-19T17:47:30.764+0000] {subprocess.py:93} INFO - 2025-08-19 17:47:30,763 INFO Loaded best run ID: 758f77ef4c794795bdfdff4c02503bcc
+[2025-08-19T17:47:31.015+0000] {subprocess.py:93} INFO - src/deploy_model.py:124: FutureWarning: ``mlflow.tracking.client.MlflowClient.get_latest_versions`` is deprecated since 2.9.0. Model registry stages will be removed in a future major release. To learn more about the deprecation of model registry stages, see our migration guide here: https://mlflow.org/docs/latest/model-registry.html#migrating-from-stages
+[2025-08-19T17:47:31.016+0000] {subprocess.py:93} INFO -   latest_version = client.get_latest_versions(model_name, stages=["None"])
+[2025-08-19T17:47:31.017+0000] {subprocess.py:93} INFO - 2025-08-19 17:47:31,014 INFO Latest model version: 4
+[2025-08-19T17:47:31.020+0000] {subprocess.py:93} INFO - 2025-08-19 17:47:31,020 INFO Model info saved to deployment/model_info.txt
+[2025-08-19T17:47:31.021+0000] {subprocess.py:93} INFO - 2025-08-19 17:47:31,020 ERROR Deployment failed: name 'create_prediction_script' is not defined
+[2025-08-19T17:47:31.024+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-19T17:47:31.025+0000] {subprocess.py:93} INFO -   File "src/deploy_model.py", line 263, in <module>
+[2025-08-19T17:47:31.026+0000] {subprocess.py:93} INFO -     deploy_model()
+[2025-08-19T17:47:31.027+0000] {subprocess.py:93} INFO -   File "src/deploy_model.py", line 248, in deploy_model
+[2025-08-19T17:47:31.028+0000] {subprocess.py:93} INFO -     prediction_script = create_prediction_script()
+[2025-08-19T17:47:31.031+0000] {subprocess.py:93} INFO - NameError: name 'create_prediction_script' is not defined
+[2025-08-19T17:47:31.309+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-08-19T17:47:31.332+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-08-19T17:47:31.338+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=customer_churn_pipeline, task_id=model_deployment, execution_date=20250819T174538, start_date=20250819T174726, end_date=20250819T174731
+[2025-08-19T17:47:31.367+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 25 for task model_deployment (Bash command failed. The command returned a non-zero exit code 1.; 1038)
+[2025-08-19T17:47:31.397+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-08-19T17:47:31.428+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,6 +1,6 @@
-deployment_timestamp: 2025-08-18T21:24:48.007428
+deployment_timestamp: 2025-08-19T17:53:10.594679
 model_source: mlflow
 model_type: LogisticRegression
 deployment_path: deployment/churn_model_deployed.pkl
-run_id: b682dba240844ed68344d97d245b4459
+run_id: a20986ad69c34568ab9b4cdb0a0c41f5
 model_version: 4

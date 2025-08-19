@@ -1,0 +1,110 @@
+[2025-08-19T17:52:28.403+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_churn_pipeline.model_evaluation manual__2025-08-19T17:51:23.774653+00:00 [queued]>
+[2025-08-19T17:52:28.420+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_churn_pipeline.model_evaluation manual__2025-08-19T17:51:23.774653+00:00 [queued]>
+[2025-08-19T17:52:28.421+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2025-08-19T17:52:28.446+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): model_evaluation> on 2025-08-19 17:51:23.774653+00:00
+[2025-08-19T17:52:28.457+0000] {standard_task_runner.py:60} INFO - Started process 1195 to run task
+[2025-08-19T17:52:28.464+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'customer_churn_pipeline', 'model_evaluation', 'manual__2025-08-19T17:51:23.774653+00:00', '--job-id', '32', '--raw', '--subdir', 'DAGS_FOLDER/customer_churn_pipeline_dag.py', '--cfg-path', '/tmp/tmp0ohwvd1b']
+[2025-08-19T17:52:28.469+0000] {standard_task_runner.py:88} INFO - Job 32: Subtask model_evaluation
+[2025-08-19T17:52:28.571+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_churn_pipeline.model_evaluation manual__2025-08-19T17:51:23.774653+00:00 [running]> on host dc08f7cf7bac
+[2025-08-19T17:52:28.742+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='customer_churn_pipeline' AIRFLOW_CTX_TASK_ID='model_evaluation' AIRFLOW_CTX_EXECUTION_DATE='2025-08-19T17:51:23.774653+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-08-19T17:51:23.774653+00:00'
+[2025-08-19T17:52:28.750+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-08-19T17:52:28.754+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/Customer_Churn_Prediction_Pipeline && python src/model_evaluation.py']
+[2025-08-19T17:52:28.781+0000] {subprocess.py:86} INFO - Output:
+[2025-08-19T17:52:32.086+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,085 INFO Starting model evaluation...
+[2025-08-19T17:52:32.142+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,141 INFO Model loaded from models/churn_model.pkl
+[2025-08-19T17:52:32.143+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,142 INFO Loading data for evaluation...
+[2025-08-19T17:52:32.145+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,143 INFO Connecting to SQLite DB at data/features/churn_features.db
+[2025-08-19T17:52:32.164+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,163 INFO Available tables: ['churn_features']
+[2025-08-19T17:52:32.499+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,498 INFO Retrieved 7032 rows and 36 columns from table churn_features
+[2025-08-19T17:52:32.503+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,502 INFO Found target column 'Churn'. Processing...
+[2025-08-19T17:52:32.504+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,503 INFO Raw target column stats:
+[2025-08-19T17:52:32.506+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,503 INFO   - Type: float64
+[2025-08-19T17:52:32.507+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,505 INFO   - Unique values: [-0.601663392508594, 1.6620589061112205]
+[2025-08-19T17:52:32.509+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,508 INFO   - Value counts:
+[2025-08-19T17:52:32.510+0000] {subprocess.py:93} INFO - -0.601663    5163
+[2025-08-19T17:52:32.511+0000] {subprocess.py:93} INFO -  1.662059    1869
+[2025-08-19T17:52:32.512+0000] {subprocess.py:93} INFO - Name: Churn, dtype: int64
+[2025-08-19T17:52:32.513+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,511 INFO Original target values before normalization: -0.601663    5163
+[2025-08-19T17:52:32.514+0000] {subprocess.py:93} INFO -  1.662059    1869
+[2025-08-19T17:52:32.515+0000] {subprocess.py:93} INFO - Name: Churn, dtype: int64
+[2025-08-19T17:52:32.516+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,511 INFO Original target dtype: float64
+[2025-08-19T17:52:32.516+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,513 INFO Unique numeric values in target: [-0.601663392508594, 1.6620589061112205]
+[2025-08-19T17:52:32.517+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,513 INFO Binary target with values [-0.601663392508594, 1.6620589061112205]. Mapping to (0,1).
+[2025-08-19T17:52:32.519+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,515 INFO Mapped -0.601663392508594→0, 1.6620589061112205→1
+[2025-08-19T17:52:32.520+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,517 INFO Final normalized target stats:
+[2025-08-19T17:52:32.521+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,518 INFO   - Unique values: [0, 1]
+[2025-08-19T17:52:32.522+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,521 INFO   - Value counts:
+[2025-08-19T17:52:32.524+0000] {subprocess.py:93} INFO - 0    5163
+[2025-08-19T17:52:32.525+0000] {subprocess.py:93} INFO - 1    1869
+[2025-08-19T17:52:32.526+0000] {subprocess.py:93} INFO - Name: Churn, dtype: int64
+[2025-08-19T17:52:32.526+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,521 INFO Features shape before dtype fix: (7032, 35), Target shape: (7032,)
+[2025-08-19T17:52:32.547+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,547 INFO Features dtypes after fix:
+[2025-08-19T17:52:32.548+0000] {subprocess.py:93} INFO - gender                                   float64
+[2025-08-19T17:52:32.549+0000] {subprocess.py:93} INFO - SeniorCitizen                            float64
+[2025-08-19T17:52:32.550+0000] {subprocess.py:93} INFO - Partner                                  float64
+[2025-08-19T17:52:32.551+0000] {subprocess.py:93} INFO - Dependents                               float64
+[2025-08-19T17:52:32.551+0000] {subprocess.py:93} INFO - tenure                                   float64
+[2025-08-19T17:52:32.552+0000] {subprocess.py:93} INFO - PhoneService                             float64
+[2025-08-19T17:52:32.553+0000] {subprocess.py:93} INFO - PaperlessBilling                         float64
+[2025-08-19T17:52:32.553+0000] {subprocess.py:93} INFO - MonthlyCharges                           float64
+[2025-08-19T17:52:32.554+0000] {subprocess.py:93} INFO - TotalCharges                             float64
+[2025-08-19T17:52:32.555+0000] {subprocess.py:93} INFO - TotalChargesPerTenure                    float64
+[2025-08-19T17:52:32.556+0000] {subprocess.py:93} INFO - MultipleLines_No phone service           float64
+[2025-08-19T17:52:32.557+0000] {subprocess.py:93} INFO - MultipleLines_Yes                        float64
+[2025-08-19T17:52:32.558+0000] {subprocess.py:93} INFO - InternetService_Fiber optic              float64
+[2025-08-19T17:52:32.558+0000] {subprocess.py:93} INFO - InternetService_No                       float64
+[2025-08-19T17:52:32.560+0000] {subprocess.py:93} INFO - OnlineSecurity_No internet service       float64
+[2025-08-19T17:52:32.561+0000] {subprocess.py:93} INFO - OnlineSecurity_Yes                       float64
+[2025-08-19T17:52:32.562+0000] {subprocess.py:93} INFO - OnlineBackup_No internet service         float64
+[2025-08-19T17:52:32.563+0000] {subprocess.py:93} INFO - OnlineBackup_Yes                         float64
+[2025-08-19T17:52:32.563+0000] {subprocess.py:93} INFO - DeviceProtection_No internet service     float64
+[2025-08-19T17:52:32.564+0000] {subprocess.py:93} INFO - DeviceProtection_Yes                     float64
+[2025-08-19T17:52:32.565+0000] {subprocess.py:93} INFO - TechSupport_No internet service          float64
+[2025-08-19T17:52:32.566+0000] {subprocess.py:93} INFO - TechSupport_Yes                          float64
+[2025-08-19T17:52:32.567+0000] {subprocess.py:93} INFO - StreamingTV_No internet service          float64
+[2025-08-19T17:52:32.568+0000] {subprocess.py:93} INFO - StreamingTV_Yes                          float64
+[2025-08-19T17:52:32.569+0000] {subprocess.py:93} INFO - StreamingMovies_No internet service      float64
+[2025-08-19T17:52:32.570+0000] {subprocess.py:93} INFO - StreamingMovies_Yes                      float64
+[2025-08-19T17:52:32.571+0000] {subprocess.py:93} INFO - Contract_One year                        float64
+[2025-08-19T17:52:32.572+0000] {subprocess.py:93} INFO - Contract_Two year                        float64
+[2025-08-19T17:52:32.573+0000] {subprocess.py:93} INFO - PaymentMethod_Credit card (automatic)    float64
+[2025-08-19T17:52:32.574+0000] {subprocess.py:93} INFO - PaymentMethod_Electronic check           float64
+[2025-08-19T17:52:32.575+0000] {subprocess.py:93} INFO - PaymentMethod_Mailed check               float64
+[2025-08-19T17:52:32.576+0000] {subprocess.py:93} INFO - TenureGroup_13-24                        float64
+[2025-08-19T17:52:32.577+0000] {subprocess.py:93} INFO - TenureGroup_25-48                        float64
+[2025-08-19T17:52:32.580+0000] {subprocess.py:93} INFO - TenureGroup_49-60                        float64
+[2025-08-19T17:52:32.582+0000] {subprocess.py:93} INFO - TenureGroup_61+                          float64
+[2025-08-19T17:52:32.583+0000] {subprocess.py:93} INFO - dtype: object
+[2025-08-19T17:52:32.584+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,547 INFO Data loaded: 7032 samples, 35 features
+[2025-08-19T17:52:32.585+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,548 INFO Classes in evaluation data: [0 1]
+[2025-08-19T17:52:32.586+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,560 INFO Making predictions on test set...
+[2025-08-19T17:52:32.587+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,574 INFO Calculating evaluation metrics...
+[2025-08-19T17:52:32.646+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:32,639 INFO Creating evaluation plots...
+[2025-08-19T17:52:33.371+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:33,370 INFO Confusion matrix saved to evaluation/confusion_matrix.png
+[2025-08-19T17:52:34.167+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:34,166 INFO ROC curve saved to evaluation/roc_curve.png
+[2025-08-19T17:52:34.894+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:34,893 INFO Precision-Recall curve saved to evaluation/precision_recall_curve.png
+[2025-08-19T17:52:36.162+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:36,162 INFO Feature importance plot saved to evaluation/feature_importance.png
+[2025-08-19T17:52:36.163+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:36,162 INFO Performing cross-validation...
+[2025-08-19T17:52:36.164+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:36,163 INFO Performing cross-validation...
+[2025-08-19T17:52:41.673+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:41,672 INFO ACCURACY: 0.7470 (+/- 0.0077)
+[2025-08-19T17:52:41.676+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:41,673 INFO PRECISION: 0.5155 (+/- 0.0099)
+[2025-08-19T17:52:41.678+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:41,675 INFO RECALL: 0.8010 (+/- 0.0385)
+[2025-08-19T17:52:41.680+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:41,676 INFO F1: 0.6272 (+/- 0.0137)
+[2025-08-19T17:52:41.689+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:41,679 INFO ROC_AUC: 0.8446 (+/- 0.0098)
+[2025-08-19T17:52:41.692+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:41,684 INFO Loaded best run ID: a20986ad69c34568ab9b4cdb0a0c41f5
+[2025-08-19T17:52:44.996+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:44,996 INFO Evaluation results logged to MLflow
+[2025-08-19T17:52:45.180+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:45,179 INFO Evaluation report saved to evaluation/evaluation_report.md
+[2025-08-19T17:52:45.182+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:45,180 INFO ==================================================
+[2025-08-19T17:52:45.183+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:45,182 INFO MODEL EVALUATION COMPLETE!
+[2025-08-19T17:52:45.184+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:45,182 INFO ==================================================
+[2025-08-19T17:52:45.185+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:45,183 INFO Test Accuracy: 0.7306
+[2025-08-19T17:52:45.186+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:45,184 INFO Test Precision: 0.4958
+[2025-08-19T17:52:45.187+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:45,184 INFO Test Recall: 0.7807
+[2025-08-19T17:52:45.188+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:45,184 INFO Test F1-Score: 0.6064
+[2025-08-19T17:52:45.188+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:45,185 INFO Test ROC-AUC: 0.8307
+[2025-08-19T17:52:45.189+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:45,185 INFO Evaluation report: evaluation/evaluation_report.md
+[2025-08-19T17:52:45.190+0000] {subprocess.py:93} INFO - 2025-08-19 17:52:45,186 INFO ==================================================
+[2025-08-19T17:52:45.747+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-08-19T17:52:45.804+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=customer_churn_pipeline, task_id=model_evaluation, execution_date=20250819T175123, start_date=20250819T175228, end_date=20250819T175245
+[2025-08-19T17:52:45.845+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-08-19T17:52:45.888+0000] {taskinstance.py:3312} INFO - 1 downstream tasks scheduled from follow-on schedule check

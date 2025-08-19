@@ -1,0 +1,31 @@
+[2025-08-19T17:26:11.970+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_churn_pipeline.dvc_pull_data manual__2025-08-19T17:26:04.918605+00:00 [queued]>
+[2025-08-19T17:26:12.052+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_churn_pipeline.dvc_pull_data manual__2025-08-19T17:26:04.918605+00:00 [queued]>
+[2025-08-19T17:26:12.053+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2025-08-19T17:26:12.186+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): dvc_pull_data> on 2025-08-19 17:26:04.918605+00:00
+[2025-08-19T17:26:12.300+0000] {standard_task_runner.py:60} INFO - Started process 475 to run task
+[2025-08-19T17:26:12.445+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'customer_churn_pipeline', 'dvc_pull_data', 'manual__2025-08-19T17:26:04.918605+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/customer_churn_pipeline_dag.py', '--cfg-path', '/tmp/tmp_hzfgtl9']
+[2025-08-19T17:26:12.560+0000] {standard_task_runner.py:88} INFO - Job 4: Subtask dvc_pull_data
+[2025-08-19T17:26:13.158+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_churn_pipeline.dvc_pull_data manual__2025-08-19T17:26:04.918605+00:00 [running]> on host dc08f7cf7bac
+[2025-08-19T17:26:14.061+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='customer_churn_pipeline' AIRFLOW_CTX_TASK_ID='dvc_pull_data' AIRFLOW_CTX_EXECUTION_DATE='2025-08-19T17:26:04.918605+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-08-19T17:26:04.918605+00:00'
+[2025-08-19T17:26:14.123+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-08-19T17:26:14.151+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/Customer_Churn_Prediction_Pipeline && dvc pull --force']
+[2025-08-19T17:26:14.240+0000] {subprocess.py:86} INFO - Output:
+[2025-08-19T17:26:41.450+0000] {subprocess.py:93} INFO - WARNING: Some of the cache files do not exist neither locally nor on remote. Missing cache files:
+[2025-08-19T17:26:41.452+0000] {subprocess.py:93} INFO - md5: bddbedfa515218f2093aa5540131d157
+[2025-08-19T17:26:41.514+0000] {subprocess.py:93} INFO - ERROR: unexpected error - [Errno 2] No such file or directory: '/opt/***/Customer_Churn_Prediction_Pipeline/models/churn_model.pkl'
+[2025-08-19T17:26:41.516+0000] {subprocess.py:93} INFO - 
+[2025-08-19T17:26:41.519+0000] {subprocess.py:93} INFO - Having any troubles? Hit us up at https://dvc.org/support, we are always happy to help!
+[2025-08-19T17:26:45.546+0000] {subprocess.py:97} INFO - Command exited with return code 255
+[2025-08-19T17:26:45.619+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 255.
+[2025-08-19T17:26:45.653+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=customer_churn_pipeline, task_id=dvc_pull_data, execution_date=20250819T172604, start_date=20250819T172611, end_date=20250819T172645
+[2025-08-19T17:26:45.865+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 4 for task dvc_pull_data (Bash command failed. The command returned a non-zero exit code 255.; 475)
+[2025-08-19T17:26:46.010+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-08-19T17:26:46.206+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

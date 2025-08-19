@@ -34,6 +34,7 @@ os.makedirs(DEPLOYMENT_DIR, exist_ok=True)
 mlflow.set_tracking_uri("file:///opt/airflow/Customer_Churn_Prediction_Pipeline/mlruns")
 client = MlflowClient()
 
+
 def load_best_run_id():
     """Load the best run ID from the temp file created during training"""
     temp_dir = tempfile.gettempdir()
@@ -47,6 +48,7 @@ def load_best_run_id():
     else:
         logger.warning(f"Best run ID file not found at {runid_file}")
         return None
+
 
 def get_latest_model_version():
     """Get the latest version of the registered model"""
@@ -63,6 +65,7 @@ def get_latest_model_version():
     except Exception as e:
         logger.error(f"Error getting latest model version: {e}")
         return None
+
 
 def load_model_for_deployment():
     """Load the trained model for deployment"""
@@ -89,6 +92,7 @@ def load_model_for_deployment():
         logger.error(f"Error loading model: {e}")
         raise
 
+
 def create_model_info_file(model, source, deployment_path):
     """Create a model information file for deployment"""
     info = {
@@ -107,6 +111,7 @@ def create_model_info_file(model, source, deployment_path):
     
     logger.info(f"Model info saved to {info_file}")
     return info
+
 
 def create_prediction_script():
     """Create a simple prediction script for the deployed model"""
@@ -195,7 +200,7 @@ if __name__ == "__main__":
     result = predictor.predict_single(sample_customer)
     print("Prediction Result:", result)
 '''
-    
+
     script_path = os.path.join(DEPLOYMENT_DIR, 'predict.py')
     with open(script_path, 'w') as f:
         f.write(script_content)
@@ -203,50 +208,6 @@ if __name__ == "__main__":
     logger.info(f"Prediction script created at {script_path}")
     return script_path
 
-def deploy_model():
-    """Main deployment function"""
-    logger.info("Starting model deployment...")
-    
-    try:
-        # Load the trained model
-        model, source = load_model_for_deployment()
-        
-        # Create deployment directory structure
-        deployment_model_path = os.path.join(DEPLOYMENT_DIR, 'churn_model_deployed.pkl')
-        
-        # Copy/save model to deployment directory
-        if source == "local":
-            shutil.copy2(MODEL_PATH, deployment_model_path)
-        else:
-            # Save MLflow model as joblib for consistency
-            joblib.dump(model, deployment_model_path)
-        
-        logger.info(f"Model deployed to: {deployment_model_path}")
-        
-        # Create model information file
-        model_info = create_model_info_file(model, source, deployment_model_path)
-        
-        # Create prediction script
-        prediction_script = create_prediction_script()
-        
-        # Create a simple API endpoint script (optional)
-        create_api_endpoint()
-        
-        # Log deployment success
-        logger.info("="*50)
-        logger.info("MODEL DEPLOYMENT SUCCESSFUL!")
-        logger.info("="*50)
-        logger.info(f"Deployed Model Path: {deployment_model_path}")
-        logger.info(f"Model Source: {source}")
-        logger.info(f"Deployment Timestamp: {model_info['deployment_timestamp']}")
-        logger.info(f"Prediction Script: {prediction_script}")
-        logger.info("="*50)
-        
-        return deployment_model_path
-        
-    except Exception as e:
-        logger.error(f"Deployment failed: {e}")
-        raise
 
 def create_api_endpoint():
     """Create a simple Flask API endpoint for the model"""
@@ -254,7 +215,6 @@ def create_api_endpoint():
 from flask import Flask, request, jsonify
 import joblib
 import pandas as pd
-import os
 
 app = Flask(__name__)
 
@@ -307,7 +267,7 @@ def health():
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=False)
 '''
-    
+
     api_path = os.path.join(DEPLOYMENT_DIR, 'api.py')
     with open(api_path, 'w') as f:
         f.write(api_content)
@@ -327,6 +287,76 @@ scikit-learn
         f.write(requirements_content)
     
     logger.info(f"Requirements file created at {req_path}")
+
+
+def create_deployment_summary(model_info, model_path, prediction_script_path):
+    """Create a markdown summary of the deployment"""
+    summary_content = f"""
+# Deployment Summary
+
+- Deployment Timestamp: {model_info['deployment_timestamp']}
+- Model Source: {model_info['model_source']}
+- Model Type: {model_info['model_type']}
+- Deployment Path: {model_path}
+- Run ID: {model_info.get('run_id', 'not available')}
+- Model Version: {model_info.get('model_version', 'not available')}
+
+## Prediction Script
+
+Located at: `{prediction_script_path}`
+"""
+    summary_path = os.path.join(DEPLOYMENT_DIR, 'deployment_summary.md')
+    with open(summary_path, 'w') as f:
+        f.write(summary_content)
+    logger.info(f"Deployment summary created at: {summary_path}")
+
+
+def deploy_model():
+    """Main deployment function"""
+    logger.info("Starting model deployment...")
+    
+    try:
+        # Load the trained model
+        model, source = load_model_for_deployment()
+        
+        # Create deployment directory structure
+        deployment_model_path = os.path.join(DEPLOYMENT_DIR, 'churn_model_deployed.pkl')
+        
+        # Copy/save model to deployment directory
+        if source == "local":
+            shutil.copy2(MODEL_PATH, deployment_model_path)
+        else:
+            # Save MLflow model as joblib for consistency
+            joblib.dump(model, deployment_model_path)
+        
+        logger.info(f"Model deployed to: {deployment_model_path}")
+        
+        # Create model information file
+        model_info = create_model_info_file(model, source, deployment_model_path)
+        
+        # Create prediction script
+        prediction_script = create_prediction_script()
+        
+        # Create a simple API endpoint script (optional)
+        create_api_endpoint()
+        
+        # Create deployment summary file
+        create_deployment_summary(model_info, deployment_model_path, prediction_script)
+        
+        logger.info("="*50)
+        logger.info("MODEL DEPLOYMENT SUCCESSFUL!")
+        logger.info("="*50)
+        logger.info(f"Deployed Model Path: {deployment_model_path}")
+        logger.info(f"Model Source: {source}")
+        logger.info(f"Deployment Timestamp: {model_info['deployment_timestamp']}")
+        logger.info(f"Prediction Script: {prediction_script}")
+        logger.info("="*50)
+        
+        return deployment_model_path
+        
+    except Exception as e:
+        logger.error(f"Deployment failed: {e}", exc_info=True)
+        raise
 
 if __name__ == "__main__":
     deploy_model()

@@ -21,7 +21,8 @@ with DAG(
 
     dvc_pull_task = BashOperator(
         task_id='dvc_pull_data',
-        bash_command=BASE_COMMAND + "dvc pull --force"
+        bash_command=BASE_COMMAND + 'dvc pull --allow-missing || echo "DVC pull completed with missing files - continuing"',
+        dag=dag,
     )
 
     ingestion_task = BashOperator(

@@ -1,0 +1,18 @@
+[2025-08-19T17:31:44.335+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_churn_pipeline.data_validation manual__2025-08-19T17:31:12.680181+00:00 [queued]>
+[2025-08-19T17:31:44.352+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_churn_pipeline.data_validation manual__2025-08-19T17:31:12.680181+00:00 [queued]>
+[2025-08-19T17:31:44.353+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2025-08-19T17:31:44.379+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): data_validation> on 2025-08-19 17:31:12.680181+00:00
+[2025-08-19T17:31:44.390+0000] {standard_task_runner.py:60} INFO - Started process 591 to run task
+[2025-08-19T17:31:44.396+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'customer_churn_pipeline', 'data_validation', 'manual__2025-08-19T17:31:12.680181+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/customer_churn_pipeline_dag.py', '--cfg-path', '/tmp/tmp_s2h6snh']
+[2025-08-19T17:31:44.401+0000] {standard_task_runner.py:88} INFO - Job 7: Subtask data_validation
+[2025-08-19T17:31:44.504+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_churn_pipeline.data_validation manual__2025-08-19T17:31:12.680181+00:00 [running]> on host dc08f7cf7bac
+[2025-08-19T17:31:44.694+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='customer_churn_pipeline' AIRFLOW_CTX_TASK_ID='data_validation' AIRFLOW_CTX_EXECUTION_DATE='2025-08-19T17:31:12.680181+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-08-19T17:31:12.680181+00:00'
+[2025-08-19T17:31:44.699+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-08-19T17:31:44.703+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/Customer_Churn_Prediction_Pipeline && python src/data_validation.py']
+[2025-08-19T17:31:44.723+0000] {subprocess.py:86} INFO - Output:
+[2025-08-19T17:31:46.669+0000] {subprocess.py:93} INFO - === DATA VALIDATION REPORT ===
+[2025-08-19T17:31:46.671+0000] {subprocess.py:93} INFO - === END OF REPORT ===
+[2025-08-19T17:31:46.793+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-08-19T17:31:46.888+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=customer_churn_pipeline, task_id=data_validation, execution_date=20250819T173112, start_date=20250819T173144, end_date=20250819T173146
+[2025-08-19T17:31:46.967+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-08-19T17:31:47.026+0000] {taskinstance.py:3312} INFO - 1 downstream tasks scheduled from follow-on schedule check
