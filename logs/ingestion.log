@@ -128,3 +128,10 @@
 2025-08-19 17:51:41,812 INFO Starting remote data ingestion from https://raw.githubusercontent.com/yugipersonalspace/ML-Assignment-PS3/main/Telco-Dataset-test.csv
 2025-08-19 17:51:42,297 INFO Remote test data downloaded and saved to data/raw/API_test_data/19-08-2025/Telco-Dataset-test.csv (size: 196084 bytes)
 2025-08-19 17:51:42,301 INFO --- Data Ingestion Pipeline Completed Successfully ---
+2025-08-19 19:23:18,888 INFO --- Data Ingestion Pipeline Started ---
+2025-08-19 19:23:18,959 INFO Starting local data ingestion from data/raw/train/Telco-Dataset-train.csv
+2025-08-19 19:23:19,786 INFO Read 5634 rows from data/raw/train/Telco-Dataset-train.csv
+2025-08-19 19:23:20,044 INFO Local training data ingested and saved to data/raw/training_data/19-08-2025/Telco-Dataset-train.csv (size: 776827 bytes)
+2025-08-19 19:23:20,052 INFO Starting remote data ingestion from https://raw.githubusercontent.com/yugipersonalspace/ML-Assignment-PS3/main/Telco-Dataset-test.csv
+2025-08-19 19:23:20,545 INFO Remote test data downloaded and saved to data/raw/API_test_data/19-08-2025/Telco-Dataset-test.csv (size: 196084 bytes)
+2025-08-19 19:23:20,548 INFO --- Data Ingestion Pipeline Completed Successfully ---
