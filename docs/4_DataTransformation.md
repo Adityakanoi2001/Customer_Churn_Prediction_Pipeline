@@ -33,22 +33,6 @@ The `data_transformation.py` script applies further transformations to the prepa
 6. **Logging:**  
    - Logs all transformations applied, including scaling parameters and any dimensionality reduction steps.
 
----
-
-## Mermaid Flowchart
-
-```mermaid
-flowchart TD
-    A[Start Transformation] --> B[Load prepared data]
-    B --> C[Apply feature scaling]
-    C --> D[Apply normalization (if needed)]
-    D --> E[Apply dimensionality reduction (optional)]
-    E --> F[Save transformed data]
-    F --> G[Log actions & finish]
-```
-
----
-
 ## Inputs
 
 - Prepared data file (e.g., `data/processed/prepared_data.csv`)

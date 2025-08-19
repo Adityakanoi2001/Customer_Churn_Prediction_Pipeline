@@ -54,28 +54,6 @@ The `train_model.py` script is responsible for training machine learning models 
 
 - All steps, metrics, and errors are logged to `logs/training.log` and the console for traceability.
 
----
-
-## Mermaid Flowchart
-
-```mermaid
-flowchart TD
-    A[Start Training] --> B[Load features & target<br>(load_features.py)]
-    B --> C[Validate target classes]
-    C --> D[Stratified train/test split]
-    D --> E[Train Logistic Regression]
-    D --> F[Train Random Forest]
-    E --> G[Evaluate & log metrics (MLflow)]
-    F --> H[Evaluate & log metrics (MLflow)]
-    G --> I{Best recall?}
-    H --> I
-    I --> J[Save best model<br>as churn_model.pkl]
-    J --> K[Register/log model in MLflow]
-    K --> L[Write best run ID to temp file]
-    L --> M[Finish]
-```
-
----
 
 ## Inputs
 

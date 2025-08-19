@@ -49,24 +49,6 @@ The `deploy_model.py` script automates the deployment of the trained churn predi
     - Logs all key actions and the locations of deployment artifacts.
     - Reports success or failure of the deployment process.
 
----
-
-## Mermaid Flowchart
-
-```mermaid
-flowchart TD
-    A[Start Deployment] --> B[Load best model (MLflow/local)]
-    B --> C[Prepare deployment directory]
-    C --> D[Copy/save model for deployment]
-    D --> E[Create model info file]
-    E --> F[Generate prediction script]
-    F --> G[Generate API endpoint script]
-    G --> H[Create deployment summary]
-    H --> I[Log completion & finish]
-```
-
----
-
 ## Inputs
 
 - Trained model file: `models/churn_model.pkl` or MLflow run/model
