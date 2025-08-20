@@ -455,3 +455,285 @@ dtype: object
 2025-08-19 17:52:45,185 INFO Test ROC-AUC: 0.8307
 2025-08-19 17:52:45,185 INFO Evaluation report: evaluation/evaluation_report.md
 2025-08-19 17:52:45,186 INFO ==================================================
+2025-08-19 19:24:34,637 INFO Starting model evaluation...
+2025-08-19 19:24:34,684 INFO Model loaded from models/churn_model.pkl
+2025-08-19 19:24:34,685 INFO Loading data for evaluation...
+2025-08-19 19:24:34,686 INFO Connecting to SQLite DB at data/features/churn_features.db
+2025-08-19 19:24:34,706 INFO Available tables: ['churn_features']
+2025-08-19 19:24:35,107 INFO Retrieved 7032 rows and 36 columns from table churn_features
+2025-08-19 19:24:35,112 INFO Found target column 'Churn'. Processing...
+2025-08-19 19:24:35,112 INFO Raw target column stats:
+2025-08-19 19:24:35,113 INFO   - Type: float64
+2025-08-19 19:24:35,114 INFO   - Unique values: [-0.601663392508594, 1.6620589061112205]
+2025-08-19 19:24:35,117 INFO   - Value counts:
+-0.601663    5163
+ 1.662059    1869
+Name: Churn, dtype: int64
+2025-08-19 19:24:35,119 INFO Original target values before normalization: -0.601663    5163
+ 1.662059    1869
+Name: Churn, dtype: int64
+2025-08-19 19:24:35,120 INFO Original target dtype: float64
+2025-08-19 19:24:35,121 INFO Unique numeric values in target: [-0.601663392508594, 1.6620589061112205]
+2025-08-19 19:24:35,122 INFO Binary target with values [-0.601663392508594, 1.6620589061112205]. Mapping to (0,1).
+2025-08-19 19:24:35,124 INFO Mapped -0.601663392508594→0, 1.6620589061112205→1
+2025-08-19 19:24:35,126 INFO Final normalized target stats:
+2025-08-19 19:24:35,127 INFO   - Unique values: [0, 1]
+2025-08-19 19:24:35,129 INFO   - Value counts:
+0    5163
+1    1869
+Name: Churn, dtype: int64
+2025-08-19 19:24:35,130 INFO Features shape before dtype fix: (7032, 35), Target shape: (7032,)
+2025-08-19 19:24:35,152 INFO Features dtypes after fix:
+gender                                   float64
+SeniorCitizen                            float64
+Partner                                  float64
+Dependents                               float64
+tenure                                   float64
+PhoneService                             float64
+PaperlessBilling                         float64
+MonthlyCharges                           float64
+TotalCharges                             float64
+TotalChargesPerTenure                    float64
+MultipleLines_No phone service           float64
+MultipleLines_Yes                        float64
+InternetService_Fiber optic              float64
+InternetService_No                       float64
+OnlineSecurity_No internet service       float64
+OnlineSecurity_Yes                       float64
+OnlineBackup_No internet service         float64
+OnlineBackup_Yes                         float64
+DeviceProtection_No internet service     float64
+DeviceProtection_Yes                     float64
+TechSupport_No internet service          float64
+TechSupport_Yes                          float64
+StreamingTV_No internet service          float64
+StreamingTV_Yes                          float64
+StreamingMovies_No internet service      float64
+StreamingMovies_Yes                      float64
+Contract_One year                        float64
+Contract_Two year                        float64
+PaymentMethod_Credit card (automatic)    float64
+PaymentMethod_Electronic check           float64
+PaymentMethod_Mailed check               float64
+TenureGroup_13-24                        float64
+TenureGroup_25-48                        float64
+TenureGroup_49-60                        float64
+TenureGroup_61+                          float64
+dtype: object
+2025-08-19 19:24:35,154 INFO Data loaded: 7032 samples, 35 features
+2025-08-19 19:24:35,155 INFO Classes in evaluation data: [0 1]
+2025-08-19 19:24:35,168 INFO Making predictions on test set...
+2025-08-19 19:24:35,181 INFO Calculating evaluation metrics...
+2025-08-19 19:24:35,259 INFO Creating evaluation plots...
+2025-08-19 19:24:35,942 INFO Confusion matrix saved to evaluation/confusion_matrix.png
+2025-08-19 19:24:37,058 INFO ROC curve saved to evaluation/roc_curve.png
+2025-08-19 19:24:37,819 INFO Precision-Recall curve saved to evaluation/precision_recall_curve.png
+2025-08-19 19:24:39,235 INFO Feature importance plot saved to evaluation/feature_importance.png
+2025-08-19 19:24:39,238 INFO Performing cross-validation...
+2025-08-19 19:24:39,241 INFO Performing cross-validation...
+2025-08-19 19:24:47,552 INFO ACCURACY: 0.7470 (+/- 0.0077)
+2025-08-19 19:24:47,565 INFO PRECISION: 0.5155 (+/- 0.0099)
+2025-08-19 19:24:47,567 INFO RECALL: 0.8010 (+/- 0.0385)
+2025-08-19 19:24:47,568 INFO F1: 0.6272 (+/- 0.0137)
+2025-08-19 19:24:47,569 INFO ROC_AUC: 0.8446 (+/- 0.0098)
+2025-08-19 19:24:47,579 INFO Loaded best run ID: 7fd6ebbc25ba485ba1086b06b2552e0e
+2025-08-19 19:24:51,968 INFO Evaluation results logged to MLflow
+2025-08-19 19:24:52,155 INFO Evaluation report saved to evaluation/evaluation_report.md
+2025-08-19 19:24:52,156 INFO ==================================================
+2025-08-19 19:24:52,157 INFO MODEL EVALUATION COMPLETE!
+2025-08-19 19:24:52,157 INFO ==================================================
+2025-08-19 19:24:52,158 INFO Test Accuracy: 0.7306
+2025-08-19 19:24:52,159 INFO Test Precision: 0.4958
+2025-08-19 19:24:52,159 INFO Test Recall: 0.7807
+2025-08-19 19:24:52,160 INFO Test F1-Score: 0.6064
+2025-08-19 19:24:52,160 INFO Test ROC-AUC: 0.8307
+2025-08-19 19:24:52,161 INFO Evaluation report: evaluation/evaluation_report.md
+2025-08-19 19:24:52,161 INFO ==================================================
+2025-08-20 17:51:16,739 INFO Starting model evaluation...
+2025-08-20 17:51:16,864 INFO Model loaded from models/churn_model.pkl
+2025-08-20 17:51:16,865 INFO Loading data for evaluation...
+2025-08-20 17:51:16,865 INFO Connecting to SQLite DB at data/features/churn_features.db
+2025-08-20 17:51:16,893 INFO Available tables: ['churn_features']
+2025-08-20 17:51:17,881 INFO Retrieved 7032 rows and 36 columns from table churn_features
+2025-08-20 17:51:17,890 INFO Found target column 'Churn'. Processing...
+2025-08-20 17:51:17,891 INFO Raw target column stats:
+2025-08-20 17:51:17,892 INFO   - Type: float64
+2025-08-20 17:51:17,892 INFO   - Unique values: [-0.601663392508594, 1.6620589061112205]
+2025-08-20 17:51:17,895 INFO   - Value counts:
+-0.601663    5163
+ 1.662059    1869
+Name: Churn, dtype: int64
+2025-08-20 17:51:17,899 INFO Original target values before normalization: -0.601663    5163
+ 1.662059    1869
+Name: Churn, dtype: int64
+2025-08-20 17:51:17,900 INFO Original target dtype: float64
+2025-08-20 17:51:17,906 INFO Unique numeric values in target: [-0.601663392508594, 1.6620589061112205]
+2025-08-20 17:51:17,916 INFO Binary target with values [-0.601663392508594, 1.6620589061112205]. Mapping to (0,1).
+2025-08-20 17:51:17,918 INFO Mapped -0.601663392508594→0, 1.6620589061112205→1
+2025-08-20 17:51:17,924 INFO Final normalized target stats:
+2025-08-20 17:51:17,925 INFO   - Unique values: [0, 1]
+2025-08-20 17:51:17,927 INFO   - Value counts:
+0    5163
+1    1869
+Name: Churn, dtype: int64
+2025-08-20 17:51:17,927 INFO Features shape before dtype fix: (7032, 35), Target shape: (7032,)
+2025-08-20 17:51:17,988 INFO Features dtypes after fix:
+gender                                   float64
+SeniorCitizen                            float64
+Partner                                  float64
+Dependents                               float64
+tenure                                   float64
+PhoneService                             float64
+PaperlessBilling                         float64
+MonthlyCharges                           float64
+TotalCharges                             float64
+TotalChargesPerTenure                    float64
+MultipleLines_No phone service           float64
+MultipleLines_Yes                        float64
+InternetService_Fiber optic              float64
+InternetService_No                       float64
+OnlineSecurity_No internet service       float64
+OnlineSecurity_Yes                       float64
+OnlineBackup_No internet service         float64
+OnlineBackup_Yes                         float64
+DeviceProtection_No internet service     float64
+DeviceProtection_Yes                     float64
+TechSupport_No internet service          float64
+TechSupport_Yes                          float64
+StreamingTV_No internet service          float64
+StreamingTV_Yes                          float64
+StreamingMovies_No internet service      float64
+StreamingMovies_Yes                      float64
+Contract_One year                        float64
+Contract_Two year                        float64
+PaymentMethod_Credit card (automatic)    float64
+PaymentMethod_Electronic check           float64
+PaymentMethod_Mailed check               float64
+TenureGroup_13-24                        float64
+TenureGroup_25-48                        float64
+TenureGroup_49-60                        float64
+TenureGroup_61+                          float64
+dtype: object
+2025-08-20 17:51:17,989 INFO Data loaded: 7032 samples, 35 features
+2025-08-20 17:51:17,990 INFO Classes in evaluation data: [0 1]
+2025-08-20 17:51:18,009 INFO Making predictions on test set...
+2025-08-20 17:51:18,060 INFO Calculating evaluation metrics...
+2025-08-20 17:51:18,180 INFO Creating evaluation plots...
+2025-08-20 17:51:19,907 INFO Confusion matrix saved to evaluation/confusion_matrix.png
+2025-08-20 17:51:19,947 INFO Starting model evaluation...
+2025-08-20 17:51:20,126 INFO Model loaded from models/churn_model.pkl
+2025-08-20 17:51:20,129 INFO Loading data for evaluation...
+2025-08-20 17:51:20,130 INFO Connecting to SQLite DB at data/features/churn_features.db
+2025-08-20 17:51:20,226 INFO Available tables: ['churn_features']
+2025-08-20 17:51:21,641 INFO Retrieved 7032 rows and 36 columns from table churn_features
+2025-08-20 17:51:21,650 INFO Found target column 'Churn'. Processing...
+2025-08-20 17:51:21,651 INFO Raw target column stats:
+2025-08-20 17:51:21,652 INFO   - Type: float64
+2025-08-20 17:51:21,653 INFO   - Unique values: [-0.601663392508594, 1.6620589061112205]
+2025-08-20 17:51:21,659 INFO   - Value counts:
+-0.601663    5163
+ 1.662059    1869
+Name: Churn, dtype: int64
+2025-08-20 17:51:21,662 INFO Original target values before normalization: -0.601663    5163
+ 1.662059    1869
+Name: Churn, dtype: int64
+2025-08-20 17:51:21,663 INFO Original target dtype: float64
+2025-08-20 17:51:21,665 INFO Unique numeric values in target: [-0.601663392508594, 1.6620589061112205]
+2025-08-20 17:51:21,666 INFO Binary target with values [-0.601663392508594, 1.6620589061112205]. Mapping to (0,1).
+2025-08-20 17:51:21,667 INFO Mapped -0.601663392508594→0, 1.6620589061112205→1
+2025-08-20 17:51:21,669 INFO Final normalized target stats:
+2025-08-20 17:51:21,670 INFO   - Unique values: [0, 1]
+2025-08-20 17:51:21,673 INFO   - Value counts:
+0    5163
+1    1869
+Name: Churn, dtype: int64
+2025-08-20 17:51:21,675 INFO Features shape before dtype fix: (7032, 35), Target shape: (7032,)
+2025-08-20 17:51:21,725 INFO Features dtypes after fix:
+gender                                   float64
+SeniorCitizen                            float64
+Partner                                  float64
+Dependents                               float64
+tenure                                   float64
+PhoneService                             float64
+PaperlessBilling                         float64
+MonthlyCharges                           float64
+TotalCharges                             float64
+TotalChargesPerTenure                    float64
+MultipleLines_No phone service           float64
+MultipleLines_Yes                        float64
+InternetService_Fiber optic              float64
+InternetService_No                       float64
+OnlineSecurity_No internet service       float64
+OnlineSecurity_Yes                       float64
+OnlineBackup_No internet service         float64
+OnlineBackup_Yes                         float64
+DeviceProtection_No internet service     float64
+DeviceProtection_Yes                     float64
+TechSupport_No internet service          float64
+TechSupport_Yes                          float64
+StreamingTV_No internet service          float64
+StreamingTV_Yes                          float64
+StreamingMovies_No internet service      float64
+StreamingMovies_Yes                      float64
+Contract_One year                        float64
+Contract_Two year                        float64
+PaymentMethod_Credit card (automatic)    float64
+PaymentMethod_Electronic check           float64
+PaymentMethod_Mailed check               float64
+TenureGroup_13-24                        float64
+TenureGroup_25-48                        float64
+TenureGroup_49-60                        float64
+TenureGroup_61+                          float64
+dtype: object
+2025-08-20 17:51:21,725 INFO Data loaded: 7032 samples, 35 features
+2025-08-20 17:51:21,727 INFO Classes in evaluation data: [0 1]
+2025-08-20 17:51:21,745 INFO Making predictions on test set...
+2025-08-20 17:51:21,793 INFO Calculating evaluation metrics...
+2025-08-20 17:51:21,998 INFO Creating evaluation plots...
+2025-08-20 17:51:22,424 INFO ROC curve saved to evaluation/roc_curve.png
+2025-08-20 17:51:24,921 INFO Confusion matrix saved to evaluation/confusion_matrix.png
+2025-08-20 17:51:25,152 INFO Precision-Recall curve saved to evaluation/precision_recall_curve.png
+2025-08-20 17:51:24,296 INFO ROC curve saved to evaluation/roc_curve.png
+2025-08-20 17:51:25,287 INFO Feature importance plot saved to evaluation/feature_importance.png
+2025-08-20 17:51:25,288 INFO Performing cross-validation...
+2025-08-20 17:51:25,289 INFO Performing cross-validation...
+2025-08-20 17:51:26,679 INFO Precision-Recall curve saved to evaluation/precision_recall_curve.png
+2025-08-20 17:51:33,678 INFO Feature importance plot saved to evaluation/feature_importance.png
+2025-08-20 17:51:33,710 INFO Performing cross-validation...
+2025-08-20 17:51:33,728 INFO Performing cross-validation...
+2025-08-20 17:52:25,793 INFO ACCURACY: 0.7470 (+/- 0.0077)
+2025-08-20 17:52:25,805 INFO PRECISION: 0.5155 (+/- 0.0099)
+2025-08-20 17:52:25,821 INFO RECALL: 0.8010 (+/- 0.0385)
+2025-08-20 17:52:25,826 INFO F1: 0.6272 (+/- 0.0137)
+2025-08-20 17:52:25,829 INFO ROC_AUC: 0.8446 (+/- 0.0098)
+2025-08-20 17:52:25,838 INFO Loaded best run ID: d58cbb1df47a44b0a994ac020152d04d
+2025-08-20 17:52:31,400 INFO ACCURACY: 0.7470 (+/- 0.0077)
+2025-08-20 17:52:31,408 INFO PRECISION: 0.5155 (+/- 0.0099)
+2025-08-20 17:52:31,426 INFO RECALL: 0.8010 (+/- 0.0385)
+2025-08-20 17:52:31,433 INFO F1: 0.6272 (+/- 0.0137)
+2025-08-20 17:52:31,446 INFO ROC_AUC: 0.8446 (+/- 0.0098)
+2025-08-20 17:52:31,464 INFO Loaded best run ID: d58cbb1df47a44b0a994ac020152d04d
+2025-08-20 17:52:35,118 INFO Evaluation results logged to MLflow
+2025-08-20 17:52:35,508 INFO Evaluation report saved to evaluation/evaluation_report.md
+2025-08-20 17:52:35,509 INFO ==================================================
+2025-08-20 17:52:35,510 INFO MODEL EVALUATION COMPLETE!
+2025-08-20 17:52:35,511 INFO ==================================================
+2025-08-20 17:52:35,512 INFO Test Accuracy: 0.7306
+2025-08-20 17:52:35,512 INFO Test Precision: 0.4958
+2025-08-20 17:52:35,513 INFO Test Recall: 0.7807
+2025-08-20 17:52:35,514 INFO Test F1-Score: 0.6064
+2025-08-20 17:52:35,514 INFO Test ROC-AUC: 0.8307
+2025-08-20 17:52:35,515 INFO Evaluation report: evaluation/evaluation_report.md
+2025-08-20 17:52:35,515 INFO ==================================================
+2025-08-20 17:52:37,951 INFO Evaluation results logged to MLflow
+2025-08-20 17:52:38,149 INFO Evaluation report saved to evaluation/evaluation_report.md
+2025-08-20 17:52:38,150 INFO ==================================================
+2025-08-20 17:52:38,152 INFO MODEL EVALUATION COMPLETE!
+2025-08-20 17:52:38,152 INFO ==================================================
+2025-08-20 17:52:38,153 INFO Test Accuracy: 0.7306
+2025-08-20 17:52:38,154 INFO Test Precision: 0.4958
+2025-08-20 17:52:38,156 INFO Test Recall: 0.7807
+2025-08-20 17:52:38,159 INFO Test F1-Score: 0.6064
+2025-08-20 17:52:38,159 INFO Test ROC-AUC: 0.8307
+2025-08-20 17:52:38,160 INFO Evaluation report: evaluation/evaluation_report.md
+2025-08-20 17:52:38,160 INFO ==================================================

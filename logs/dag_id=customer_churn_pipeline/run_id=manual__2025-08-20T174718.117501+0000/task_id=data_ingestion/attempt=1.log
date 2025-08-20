@@ -1,0 +1,23 @@
+[2025-08-20T17:47:57.302+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_churn_pipeline.data_ingestion manual__2025-08-20T17:47:18.117501+00:00 [queued]>
+[2025-08-20T17:47:57.338+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_churn_pipeline.data_ingestion manual__2025-08-20T17:47:18.117501+00:00 [queued]>
+[2025-08-20T17:47:57.340+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2025-08-20T17:47:57.395+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): data_ingestion> on 2025-08-20 17:47:18.117501+00:00
+[2025-08-20T17:47:57.412+0000] {standard_task_runner.py:60} INFO - Started process 273 to run task
+[2025-08-20T17:47:57.425+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'customer_churn_pipeline', 'data_ingestion', 'manual__2025-08-20T17:47:18.117501+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/customer_churn_pipeline_dag.py', '--cfg-path', '/tmp/tmp_f4xhzcs']
+[2025-08-20T17:47:57.432+0000] {standard_task_runner.py:88} INFO - Job 7: Subtask data_ingestion
+[2025-08-20T17:47:57.640+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_churn_pipeline.data_ingestion manual__2025-08-20T17:47:18.117501+00:00 [running]> on host bd9202be787f
+[2025-08-20T17:47:58.633+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='customer_churn_pipeline' AIRFLOW_CTX_TASK_ID='data_ingestion' AIRFLOW_CTX_EXECUTION_DATE='2025-08-20T17:47:18.117501+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-08-20T17:47:18.117501+00:00'
+[2025-08-20T17:47:58.652+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-08-20T17:47:58.739+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/Customer_Churn_Prediction_Pipeline && python src/ingestion.py']
+[2025-08-20T17:47:59.013+0000] {subprocess.py:86} INFO - Output:
+[2025-08-20T17:48:05.073+0000] {subprocess.py:93} INFO - 2025-08-20 17:48:05,045 INFO --- Data Ingestion Pipeline Started ---
+[2025-08-20T17:48:05.447+0000] {subprocess.py:93} INFO - 2025-08-20 17:48:05,420 INFO Starting local data ingestion from data/raw/train/Telco-Dataset-train.csv
+[2025-08-20T17:48:07.474+0000] {subprocess.py:93} INFO - 2025-08-20 17:48:07,344 INFO Read 5634 rows from data/raw/train/Telco-Dataset-train.csv
+[2025-08-20T17:48:10.501+0000] {subprocess.py:93} INFO - 2025-08-20 17:48:10,500 INFO Local training data ingested and saved to data/raw/training_data/20-08-2025/Telco-Dataset-train.csv (size: 776827 bytes)
+[2025-08-20T17:48:10.844+0000] {subprocess.py:93} INFO - 2025-08-20 17:48:10,842 INFO Starting remote data ingestion from https://raw.githubusercontent.com/yugipersonalspace/ML-Assignment-PS3/main/Telco-Dataset-test.csv
+[2025-08-20T17:48:11.907+0000] {subprocess.py:93} INFO - 2025-08-20 17:48:11,901 INFO Remote test data downloaded and saved to data/raw/API_test_data/20-08-2025/Telco-Dataset-test.csv (size: 196084 bytes)
+[2025-08-20T17:48:11.916+0000] {subprocess.py:93} INFO - 2025-08-20 17:48:11,911 INFO --- Data Ingestion Pipeline Completed Successfully ---
+[2025-08-20T17:48:12.441+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-08-20T17:48:12.694+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=customer_churn_pipeline, task_id=data_ingestion, execution_date=20250820T174718, start_date=20250820T174757, end_date=20250820T174812
+[2025-08-20T17:48:12.926+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-08-20T17:48:13.119+0000] {taskinstance.py:3312} INFO - 1 downstream tasks scheduled from follow-on schedule check

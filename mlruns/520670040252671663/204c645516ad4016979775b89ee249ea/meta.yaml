@@ -1,0 +1,15 @@
+artifact_uri: file:///opt/airflow/Customer_Churn_Prediction_Pipeline/mlruns/204c645516ad4016979775b89ee249ea/artifacts
+end_time: 1755712200197
+entry_point_name: ''
+experiment_id: '520670040252671663'
+lifecycle_stage: active
+run_id: 204c645516ad4016979775b89ee249ea
+run_name: RandomForest
+run_uuid: 204c645516ad4016979775b89ee249ea
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1755712193956
+status: 3
+tags: []
+user_id: airflow
