@@ -11,7 +11,7 @@ This project implements an end-to-end machine learning pipeline for predicting c
 - Modular, reproducible, and scalable pipeline
 
 ## Folder Structure
-See the [doc/pipeline_overview.md](doc/Pipeline_overview.md) and the folder structure section for details on project organization.
+See the [doc/Pipeline_overview.md](doc/Pipeline_overview.md) and the folder structure section for details on project organization.
 
 ## Getting Started
 - **Prerequisites:** Python, Docker, DVC, MLflow, and other dependencies listed in `requirements.txt`
