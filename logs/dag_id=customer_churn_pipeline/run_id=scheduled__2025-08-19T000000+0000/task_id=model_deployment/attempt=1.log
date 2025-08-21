@@ -1,0 +1,38 @@
+[2025-08-20T17:53:55.441+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_churn_pipeline.model_deployment scheduled__2025-08-19T00:00:00+00:00 [queued]>
+[2025-08-20T17:53:55.470+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_churn_pipeline.model_deployment scheduled__2025-08-19T00:00:00+00:00 [queued]>
+[2025-08-20T17:53:55.471+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2025-08-20T17:53:55.509+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): model_deployment> on 2025-08-19 00:00:00+00:00
+[2025-08-20T17:53:55.519+0000] {standard_task_runner.py:60} INFO - Started process 559 to run task
+[2025-08-20T17:53:55.526+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'customer_churn_pipeline', 'model_deployment', 'scheduled__2025-08-19T00:00:00+00:00', '--job-id', '19', '--raw', '--subdir', 'DAGS_FOLDER/customer_churn_pipeline_dag.py', '--cfg-path', '/tmp/tmp_z47u_ct']
+[2025-08-20T17:53:55.540+0000] {standard_task_runner.py:88} INFO - Job 19: Subtask model_deployment
+[2025-08-20T17:53:55.697+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_churn_pipeline.model_deployment scheduled__2025-08-19T00:00:00+00:00 [running]> on host bd9202be787f
+[2025-08-20T17:53:55.918+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='customer_churn_pipeline' AIRFLOW_CTX_TASK_ID='model_deployment' AIRFLOW_CTX_EXECUTION_DATE='2025-08-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-08-19T00:00:00+00:00'
+[2025-08-20T17:53:55.923+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-08-20T17:53:55.925+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/Customer_Churn_Prediction_Pipeline && python src/deploy_model.py']
+[2025-08-20T17:53:55.955+0000] {subprocess.py:86} INFO - Output:
+[2025-08-20T17:54:01.186+0000] {subprocess.py:93} INFO - 2025-08-20 17:54:01,184 INFO Starting model deployment...
+[2025-08-20T17:54:01.188+0000] {subprocess.py:93} INFO - 2025-08-20 17:54:01,187 INFO Loaded best run ID: d58cbb1df47a44b0a994ac020152d04d
+[2025-08-20T17:54:01.189+0000] {subprocess.py:93} INFO - 2025-08-20 17:54:01,188 INFO Loading model from MLflow run: d58cbb1df47a44b0a994ac020152d04d
+[2025-08-20T17:54:03.634+0000] {subprocess.py:93} INFO - 2025-08-20 17:54:03,631 INFO Model loaded successfully from MLflow
+[2025-08-20T17:54:03.652+0000] {subprocess.py:93} INFO - 2025-08-20 17:54:03,651 INFO Model deployed to: deployment/churn_model_deployed.pkl
+[2025-08-20T17:54:03.654+0000] {subprocess.py:93} INFO - 2025-08-20 17:54:03,653 INFO Loaded best run ID: d58cbb1df47a44b0a994ac020152d04d
+[2025-08-20T17:54:04.825+0000] {subprocess.py:93} INFO - src/deploy_model.py:57: FutureWarning: ``mlflow.tracking.client.MlflowClient.get_latest_versions`` is deprecated since 2.9.0. Model registry stages will be removed in a future major release. To learn more about the deprecation of model registry stages, see our migration guide here: https://mlflow.org/docs/latest/model-registry.html#migrating-from-stages
+[2025-08-20T17:54:04.826+0000] {subprocess.py:93} INFO -   latest_version = client.get_latest_versions(model_name, stages=["None"])
+[2025-08-20T17:54:04.828+0000] {subprocess.py:93} INFO - 2025-08-20 17:54:04,824 INFO Latest model version: 4
+[2025-08-20T17:54:04.831+0000] {subprocess.py:93} INFO - 2025-08-20 17:54:04,831 INFO Model info saved to deployment/model_info.txt
+[2025-08-20T17:54:04.847+0000] {subprocess.py:93} INFO - 2025-08-20 17:54:04,845 INFO Prediction script created at deployment/predict.py
+[2025-08-20T17:54:04.862+0000] {subprocess.py:93} INFO - 2025-08-20 17:54:04,861 INFO API endpoint script created at deployment/api.py
+[2025-08-20T17:54:04.867+0000] {subprocess.py:93} INFO - 2025-08-20 17:54:04,866 INFO Requirements file created at deployment/requirements.txt
+[2025-08-20T17:54:04.883+0000] {subprocess.py:93} INFO - 2025-08-20 17:54:04,879 INFO Deployment summary created at: deployment/deployment_summary.md
+[2025-08-20T17:54:04.887+0000] {subprocess.py:93} INFO - 2025-08-20 17:54:04,883 INFO ==================================================
+[2025-08-20T17:54:04.899+0000] {subprocess.py:93} INFO - 2025-08-20 17:54:04,884 INFO MODEL DEPLOYMENT SUCCESSFUL!
+[2025-08-20T17:54:04.901+0000] {subprocess.py:93} INFO - 2025-08-20 17:54:04,898 INFO ==================================================
+[2025-08-20T17:54:04.902+0000] {subprocess.py:93} INFO - 2025-08-20 17:54:04,900 INFO Deployed Model Path: deployment/churn_model_deployed.pkl
+[2025-08-20T17:54:04.903+0000] {subprocess.py:93} INFO - 2025-08-20 17:54:04,902 INFO Model Source: mlflow
+[2025-08-20T17:54:04.904+0000] {subprocess.py:93} INFO - 2025-08-20 17:54:04,903 INFO Deployment Timestamp: 2025-08-20T17:54:03.652755
+[2025-08-20T17:54:04.910+0000] {subprocess.py:93} INFO - 2025-08-20 17:54:04,904 INFO Prediction Script: deployment/predict.py
+[2025-08-20T17:54:04.913+0000] {subprocess.py:93} INFO - 2025-08-20 17:54:04,905 INFO ==================================================
+[2025-08-20T17:54:05.457+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-08-20T17:54:05.558+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=customer_churn_pipeline, task_id=model_deployment, execution_date=20250819T000000, start_date=20250820T175355, end_date=20250820T175405
+[2025-08-20T17:54:05.667+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-08-20T17:54:05.707+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,398 @@
+[2025-08-21T05:13:18.459+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_churn_pipeline.model_training scheduled__2025-08-20T00:00:00+00:00 [queued]>
+[2025-08-21T05:13:18.494+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_churn_pipeline.model_training scheduled__2025-08-20T00:00:00+00:00 [queued]>
+[2025-08-21T05:13:18.495+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2025-08-21T05:13:18.534+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): model_training> on 2025-08-20 00:00:00+00:00
+[2025-08-21T05:13:18.548+0000] {standard_task_runner.py:60} INFO - Started process 285 to run task
+[2025-08-21T05:13:18.569+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'customer_churn_pipeline', 'model_training', 'scheduled__2025-08-20T00:00:00+00:00', '--job-id', '26', '--raw', '--subdir', 'DAGS_FOLDER/customer_churn_pipeline_dag.py', '--cfg-path', '/tmp/tmp53g_iu05']
+[2025-08-21T05:13:18.604+0000] {standard_task_runner.py:88} INFO - Job 26: Subtask model_training
+[2025-08-21T05:13:18.799+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_churn_pipeline.model_training scheduled__2025-08-20T00:00:00+00:00 [running]> on host bd9202be787f
+[2025-08-21T05:13:19.071+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='customer_churn_pipeline' AIRFLOW_CTX_TASK_ID='model_training' AIRFLOW_CTX_EXECUTION_DATE='2025-08-20T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-08-20T00:00:00+00:00'
+[2025-08-21T05:13:19.073+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-08-21T05:13:19.076+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/Customer_Churn_Prediction_Pipeline && python src/train_model.py']
+[2025-08-21T05:13:19.116+0000] {subprocess.py:86} INFO - Output:
+[2025-08-21T05:13:33.703+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:33,690 WARNING Malformed experiment '3c451db2cddf461b9fa24b573ecdc116'. Detailed error Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/3c451db2cddf461b9fa24b573ecdc116/meta.yaml' does not exist.
+[2025-08-21T05:13:33.705+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-21T05:13:33.706+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 327, in search_experiments
+[2025-08-21T05:13:33.707+0000] {subprocess.py:93} INFO -     exp = self._get_experiment(exp_id, view_type)
+[2025-08-21T05:13:33.708+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 421, in _get_experiment
+[2025-08-21T05:13:33.710+0000] {subprocess.py:93} INFO -     meta = FileStore._read_yaml(experiment_dir, FileStore.META_DATA_FILE_NAME)
+[2025-08-21T05:13:33.712+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1367, in _read_yaml
+[2025-08-21T05:13:33.714+0000] {subprocess.py:93} INFO -     return _read_helper(root, file_name, attempts_remaining=retries)
+[2025-08-21T05:13:33.715+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1360, in _read_helper
+[2025-08-21T05:13:33.716+0000] {subprocess.py:93} INFO -     result = read_yaml(root, file_name)
+[2025-08-21T05:13:33.717+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 309, in read_yaml
+[2025-08-21T05:13:33.718+0000] {subprocess.py:93} INFO -     raise MissingConfigException(f"Yaml file '{file_path}' does not exist.")
+[2025-08-21T05:13:33.719+0000] {subprocess.py:93} INFO - mlflow.exceptions.MissingConfigException: Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/3c451db2cddf461b9fa24b573ecdc116/meta.yaml' does not exist.
+[2025-08-21T05:13:33.824+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:33,824 WARNING Malformed experiment '66a6a96d2c6e463cbcf97c942dce679d'. Detailed error Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/66a6a96d2c6e463cbcf97c942dce679d/meta.yaml' does not exist.
+[2025-08-21T05:13:33.826+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-21T05:13:33.827+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 327, in search_experiments
+[2025-08-21T05:13:33.830+0000] {subprocess.py:93} INFO -     exp = self._get_experiment(exp_id, view_type)
+[2025-08-21T05:13:33.831+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 421, in _get_experiment
+[2025-08-21T05:13:33.832+0000] {subprocess.py:93} INFO -     meta = FileStore._read_yaml(experiment_dir, FileStore.META_DATA_FILE_NAME)
+[2025-08-21T05:13:33.834+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1367, in _read_yaml
+[2025-08-21T05:13:33.836+0000] {subprocess.py:93} INFO -     return _read_helper(root, file_name, attempts_remaining=retries)
+[2025-08-21T05:13:33.843+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1360, in _read_helper
+[2025-08-21T05:13:33.846+0000] {subprocess.py:93} INFO -     result = read_yaml(root, file_name)
+[2025-08-21T05:13:33.849+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 309, in read_yaml
+[2025-08-21T05:13:33.851+0000] {subprocess.py:93} INFO -     raise MissingConfigException(f"Yaml file '{file_path}' does not exist.")
+[2025-08-21T05:13:33.854+0000] {subprocess.py:93} INFO - mlflow.exceptions.MissingConfigException: Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/66a6a96d2c6e463cbcf97c942dce679d/meta.yaml' does not exist.
+[2025-08-21T05:13:33.858+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:33,852 WARNING Malformed experiment '758f77ef4c794795bdfdff4c02503bcc'. Detailed error Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/758f77ef4c794795bdfdff4c02503bcc/meta.yaml' does not exist.
+[2025-08-21T05:13:33.859+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-21T05:13:33.860+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 327, in search_experiments
+[2025-08-21T05:13:33.862+0000] {subprocess.py:93} INFO -     exp = self._get_experiment(exp_id, view_type)
+[2025-08-21T05:13:33.863+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 421, in _get_experiment
+[2025-08-21T05:13:33.865+0000] {subprocess.py:93} INFO -     meta = FileStore._read_yaml(experiment_dir, FileStore.META_DATA_FILE_NAME)
+[2025-08-21T05:13:33.867+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1367, in _read_yaml
+[2025-08-21T05:13:33.868+0000] {subprocess.py:93} INFO -     return _read_helper(root, file_name, attempts_remaining=retries)
+[2025-08-21T05:13:33.870+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1360, in _read_helper
+[2025-08-21T05:13:33.876+0000] {subprocess.py:93} INFO -     result = read_yaml(root, file_name)
+[2025-08-21T05:13:33.881+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 309, in read_yaml
+[2025-08-21T05:13:33.883+0000] {subprocess.py:93} INFO -     raise MissingConfigException(f"Yaml file '{file_path}' does not exist.")
+[2025-08-21T05:13:33.885+0000] {subprocess.py:93} INFO - mlflow.exceptions.MissingConfigException: Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/758f77ef4c794795bdfdff4c02503bcc/meta.yaml' does not exist.
+[2025-08-21T05:13:33.887+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:33,870 WARNING Malformed experiment '7a4c300b24d14505ba7f4df32748abf9'. Detailed error Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/7a4c300b24d14505ba7f4df32748abf9/meta.yaml' does not exist.
+[2025-08-21T05:13:33.888+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-21T05:13:33.890+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 327, in search_experiments
+[2025-08-21T05:13:33.893+0000] {subprocess.py:93} INFO -     exp = self._get_experiment(exp_id, view_type)
+[2025-08-21T05:13:33.896+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 421, in _get_experiment
+[2025-08-21T05:13:33.897+0000] {subprocess.py:93} INFO -     meta = FileStore._read_yaml(experiment_dir, FileStore.META_DATA_FILE_NAME)
+[2025-08-21T05:13:33.899+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1367, in _read_yaml
+[2025-08-21T05:13:33.900+0000] {subprocess.py:93} INFO -     return _read_helper(root, file_name, attempts_remaining=retries)
+[2025-08-21T05:13:33.902+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1360, in _read_helper
+[2025-08-21T05:13:33.903+0000] {subprocess.py:93} INFO -     result = read_yaml(root, file_name)
+[2025-08-21T05:13:33.904+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 309, in read_yaml
+[2025-08-21T05:13:33.906+0000] {subprocess.py:93} INFO -     raise MissingConfigException(f"Yaml file '{file_path}' does not exist.")
+[2025-08-21T05:13:33.908+0000] {subprocess.py:93} INFO - mlflow.exceptions.MissingConfigException: Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/7a4c300b24d14505ba7f4df32748abf9/meta.yaml' does not exist.
+[2025-08-21T05:13:33.913+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:33,900 WARNING Malformed experiment '7fd6ebbc25ba485ba1086b06b2552e0e'. Detailed error Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/7fd6ebbc25ba485ba1086b06b2552e0e/meta.yaml' does not exist.
+[2025-08-21T05:13:33.918+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-21T05:13:33.923+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 327, in search_experiments
+[2025-08-21T05:13:33.924+0000] {subprocess.py:93} INFO -     exp = self._get_experiment(exp_id, view_type)
+[2025-08-21T05:13:33.928+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 421, in _get_experiment
+[2025-08-21T05:13:33.931+0000] {subprocess.py:93} INFO -     meta = FileStore._read_yaml(experiment_dir, FileStore.META_DATA_FILE_NAME)
+[2025-08-21T05:13:33.932+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1367, in _read_yaml
+[2025-08-21T05:13:33.933+0000] {subprocess.py:93} INFO -     return _read_helper(root, file_name, attempts_remaining=retries)
+[2025-08-21T05:13:33.935+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1360, in _read_helper
+[2025-08-21T05:13:33.936+0000] {subprocess.py:93} INFO -     result = read_yaml(root, file_name)
+[2025-08-21T05:13:33.937+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 309, in read_yaml
+[2025-08-21T05:13:33.939+0000] {subprocess.py:93} INFO -     raise MissingConfigException(f"Yaml file '{file_path}' does not exist.")
+[2025-08-21T05:13:33.973+0000] {subprocess.py:93} INFO - mlflow.exceptions.MissingConfigException: Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/7fd6ebbc25ba485ba1086b06b2552e0e/meta.yaml' does not exist.
+[2025-08-21T05:13:33.977+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:33,923 WARNING Malformed experiment '9f8a2292aea24d39a6b035889d38fb72'. Detailed error Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/9f8a2292aea24d39a6b035889d38fb72/meta.yaml' does not exist.
+[2025-08-21T05:13:33.984+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-21T05:13:34.004+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 327, in search_experiments
+[2025-08-21T05:13:34.006+0000] {subprocess.py:93} INFO -     exp = self._get_experiment(exp_id, view_type)
+[2025-08-21T05:13:34.008+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 421, in _get_experiment
+[2025-08-21T05:13:34.026+0000] {subprocess.py:93} INFO -     meta = FileStore._read_yaml(experiment_dir, FileStore.META_DATA_FILE_NAME)
+[2025-08-21T05:13:34.038+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1367, in _read_yaml
+[2025-08-21T05:13:34.041+0000] {subprocess.py:93} INFO -     return _read_helper(root, file_name, attempts_remaining=retries)
+[2025-08-21T05:13:34.044+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1360, in _read_helper
+[2025-08-21T05:13:34.046+0000] {subprocess.py:93} INFO -     result = read_yaml(root, file_name)
+[2025-08-21T05:13:34.049+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 309, in read_yaml
+[2025-08-21T05:13:34.051+0000] {subprocess.py:93} INFO -     raise MissingConfigException(f"Yaml file '{file_path}' does not exist.")
+[2025-08-21T05:13:34.064+0000] {subprocess.py:93} INFO - mlflow.exceptions.MissingConfigException: Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/9f8a2292aea24d39a6b035889d38fb72/meta.yaml' does not exist.
+[2025-08-21T05:13:34.067+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:34,044 WARNING Malformed experiment 'a20986ad69c34568ab9b4cdb0a0c41f5'. Detailed error Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/a20986ad69c34568ab9b4cdb0a0c41f5/meta.yaml' does not exist.
+[2025-08-21T05:13:34.069+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-21T05:13:34.075+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 327, in search_experiments
+[2025-08-21T05:13:34.078+0000] {subprocess.py:93} INFO -     exp = self._get_experiment(exp_id, view_type)
+[2025-08-21T05:13:34.079+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 421, in _get_experiment
+[2025-08-21T05:13:34.080+0000] {subprocess.py:93} INFO -     meta = FileStore._read_yaml(experiment_dir, FileStore.META_DATA_FILE_NAME)
+[2025-08-21T05:13:34.082+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1367, in _read_yaml
+[2025-08-21T05:13:34.084+0000] {subprocess.py:93} INFO -     return _read_helper(root, file_name, attempts_remaining=retries)
+[2025-08-21T05:13:34.088+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1360, in _read_helper
+[2025-08-21T05:13:34.099+0000] {subprocess.py:93} INFO -     result = read_yaml(root, file_name)
+[2025-08-21T05:13:34.101+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 309, in read_yaml
+[2025-08-21T05:13:34.103+0000] {subprocess.py:93} INFO -     raise MissingConfigException(f"Yaml file '{file_path}' does not exist.")
+[2025-08-21T05:13:34.104+0000] {subprocess.py:93} INFO - mlflow.exceptions.MissingConfigException: Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/a20986ad69c34568ab9b4cdb0a0c41f5/meta.yaml' does not exist.
+[2025-08-21T05:13:34.106+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:34,088 WARNING Malformed experiment 'b682dba240844ed68344d97d245b4459'. Detailed error Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/b682dba240844ed68344d97d245b4459/meta.yaml' does not exist.
+[2025-08-21T05:13:34.113+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-21T05:13:34.115+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 327, in search_experiments
+[2025-08-21T05:13:34.116+0000] {subprocess.py:93} INFO -     exp = self._get_experiment(exp_id, view_type)
+[2025-08-21T05:13:34.117+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 421, in _get_experiment
+[2025-08-21T05:13:34.121+0000] {subprocess.py:93} INFO -     meta = FileStore._read_yaml(experiment_dir, FileStore.META_DATA_FILE_NAME)
+[2025-08-21T05:13:34.123+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1367, in _read_yaml
+[2025-08-21T05:13:34.136+0000] {subprocess.py:93} INFO -     return _read_helper(root, file_name, attempts_remaining=retries)
+[2025-08-21T05:13:34.139+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1360, in _read_helper
+[2025-08-21T05:13:34.141+0000] {subprocess.py:93} INFO -     result = read_yaml(root, file_name)
+[2025-08-21T05:13:34.147+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 309, in read_yaml
+[2025-08-21T05:13:34.151+0000] {subprocess.py:93} INFO -     raise MissingConfigException(f"Yaml file '{file_path}' does not exist.")
+[2025-08-21T05:13:34.153+0000] {subprocess.py:93} INFO - mlflow.exceptions.MissingConfigException: Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/b682dba240844ed68344d97d245b4459/meta.yaml' does not exist.
+[2025-08-21T05:13:34.157+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:34,152 WARNING Malformed experiment 'ccfdd47280274aaf8b96e7d6067888c4'. Detailed error Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/ccfdd47280274aaf8b96e7d6067888c4/meta.yaml' does not exist.
+[2025-08-21T05:13:34.168+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-21T05:13:34.175+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 327, in search_experiments
+[2025-08-21T05:13:34.178+0000] {subprocess.py:93} INFO -     exp = self._get_experiment(exp_id, view_type)
+[2025-08-21T05:13:34.182+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 421, in _get_experiment
+[2025-08-21T05:13:34.185+0000] {subprocess.py:93} INFO -     meta = FileStore._read_yaml(experiment_dir, FileStore.META_DATA_FILE_NAME)
+[2025-08-21T05:13:34.187+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1367, in _read_yaml
+[2025-08-21T05:13:34.189+0000] {subprocess.py:93} INFO -     return _read_helper(root, file_name, attempts_remaining=retries)
+[2025-08-21T05:13:34.190+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1360, in _read_helper
+[2025-08-21T05:13:34.192+0000] {subprocess.py:93} INFO -     result = read_yaml(root, file_name)
+[2025-08-21T05:13:34.194+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 309, in read_yaml
+[2025-08-21T05:13:34.209+0000] {subprocess.py:93} INFO -     raise MissingConfigException(f"Yaml file '{file_path}' does not exist.")
+[2025-08-21T05:13:34.212+0000] {subprocess.py:93} INFO - mlflow.exceptions.MissingConfigException: Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/ccfdd47280274aaf8b96e7d6067888c4/meta.yaml' does not exist.
+[2025-08-21T05:13:34.224+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:34,223 WARNING Malformed experiment 'd58cbb1df47a44b0a994ac020152d04d'. Detailed error Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/d58cbb1df47a44b0a994ac020152d04d/meta.yaml' does not exist.
+[2025-08-21T05:13:34.225+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-21T05:13:34.227+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 327, in search_experiments
+[2025-08-21T05:13:34.228+0000] {subprocess.py:93} INFO -     exp = self._get_experiment(exp_id, view_type)
+[2025-08-21T05:13:34.230+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 421, in _get_experiment
+[2025-08-21T05:13:34.241+0000] {subprocess.py:93} INFO -     meta = FileStore._read_yaml(experiment_dir, FileStore.META_DATA_FILE_NAME)
+[2025-08-21T05:13:34.248+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1367, in _read_yaml
+[2025-08-21T05:13:34.250+0000] {subprocess.py:93} INFO -     return _read_helper(root, file_name, attempts_remaining=retries)
+[2025-08-21T05:13:34.258+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1360, in _read_helper
+[2025-08-21T05:13:34.261+0000] {subprocess.py:93} INFO -     result = read_yaml(root, file_name)
+[2025-08-21T05:13:34.263+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 309, in read_yaml
+[2025-08-21T05:13:34.266+0000] {subprocess.py:93} INFO -     raise MissingConfigException(f"Yaml file '{file_path}' does not exist.")
+[2025-08-21T05:13:34.279+0000] {subprocess.py:93} INFO - mlflow.exceptions.MissingConfigException: Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/d58cbb1df47a44b0a994ac020152d04d/meta.yaml' does not exist.
+[2025-08-21T05:13:34.281+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:34,264 WARNING Malformed experiment 'e45a2c3f2fe5435bb5ee5c51f9930955'. Detailed error Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/e45a2c3f2fe5435bb5ee5c51f9930955/meta.yaml' does not exist.
+[2025-08-21T05:13:34.283+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-21T05:13:34.292+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 327, in search_experiments
+[2025-08-21T05:13:34.295+0000] {subprocess.py:93} INFO -     exp = self._get_experiment(exp_id, view_type)
+[2025-08-21T05:13:34.300+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 421, in _get_experiment
+[2025-08-21T05:13:34.313+0000] {subprocess.py:93} INFO -     meta = FileStore._read_yaml(experiment_dir, FileStore.META_DATA_FILE_NAME)
+[2025-08-21T05:13:34.318+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1367, in _read_yaml
+[2025-08-21T05:13:34.331+0000] {subprocess.py:93} INFO -     return _read_helper(root, file_name, attempts_remaining=retries)
+[2025-08-21T05:13:34.332+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1360, in _read_helper
+[2025-08-21T05:13:34.334+0000] {subprocess.py:93} INFO -     result = read_yaml(root, file_name)
+[2025-08-21T05:13:34.335+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 309, in read_yaml
+[2025-08-21T05:13:34.337+0000] {subprocess.py:93} INFO -     raise MissingConfigException(f"Yaml file '{file_path}' does not exist.")
+[2025-08-21T05:13:34.338+0000] {subprocess.py:93} INFO - mlflow.exceptions.MissingConfigException: Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/e45a2c3f2fe5435bb5ee5c51f9930955/meta.yaml' does not exist.
+[2025-08-21T05:13:34.502+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:34,502 WARNING Malformed experiment '3c451db2cddf461b9fa24b573ecdc116'. Detailed error Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/3c451db2cddf461b9fa24b573ecdc116/meta.yaml' does not exist.
+[2025-08-21T05:13:34.504+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-21T05:13:34.507+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 327, in search_experiments
+[2025-08-21T05:13:34.508+0000] {subprocess.py:93} INFO -     exp = self._get_experiment(exp_id, view_type)
+[2025-08-21T05:13:34.510+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 421, in _get_experiment
+[2025-08-21T05:13:34.518+0000] {subprocess.py:93} INFO -     meta = FileStore._read_yaml(experiment_dir, FileStore.META_DATA_FILE_NAME)
+[2025-08-21T05:13:34.519+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1367, in _read_yaml
+[2025-08-21T05:13:34.524+0000] {subprocess.py:93} INFO -     return _read_helper(root, file_name, attempts_remaining=retries)
+[2025-08-21T05:13:34.533+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1360, in _read_helper
+[2025-08-21T05:13:34.538+0000] {subprocess.py:93} INFO -     result = read_yaml(root, file_name)
+[2025-08-21T05:13:34.542+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 309, in read_yaml
+[2025-08-21T05:13:34.550+0000] {subprocess.py:93} INFO -     raise MissingConfigException(f"Yaml file '{file_path}' does not exist.")
+[2025-08-21T05:13:34.553+0000] {subprocess.py:93} INFO - mlflow.exceptions.MissingConfigException: Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/3c451db2cddf461b9fa24b573ecdc116/meta.yaml' does not exist.
+[2025-08-21T05:13:34.695+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:34,694 WARNING Malformed experiment '66a6a96d2c6e463cbcf97c942dce679d'. Detailed error Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/66a6a96d2c6e463cbcf97c942dce679d/meta.yaml' does not exist.
+[2025-08-21T05:13:34.696+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-21T05:13:34.697+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 327, in search_experiments
+[2025-08-21T05:13:34.698+0000] {subprocess.py:93} INFO -     exp = self._get_experiment(exp_id, view_type)
+[2025-08-21T05:13:34.700+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 421, in _get_experiment
+[2025-08-21T05:13:34.704+0000] {subprocess.py:93} INFO -     meta = FileStore._read_yaml(experiment_dir, FileStore.META_DATA_FILE_NAME)
+[2025-08-21T05:13:34.711+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1367, in _read_yaml
+[2025-08-21T05:13:34.713+0000] {subprocess.py:93} INFO -     return _read_helper(root, file_name, attempts_remaining=retries)
+[2025-08-21T05:13:34.715+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1360, in _read_helper
+[2025-08-21T05:13:34.717+0000] {subprocess.py:93} INFO -     result = read_yaml(root, file_name)
+[2025-08-21T05:13:34.718+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 309, in read_yaml
+[2025-08-21T05:13:34.722+0000] {subprocess.py:93} INFO -     raise MissingConfigException(f"Yaml file '{file_path}' does not exist.")
+[2025-08-21T05:13:34.725+0000] {subprocess.py:93} INFO - mlflow.exceptions.MissingConfigException: Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/66a6a96d2c6e463cbcf97c942dce679d/meta.yaml' does not exist.
+[2025-08-21T05:13:34.726+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:34,718 WARNING Malformed experiment '758f77ef4c794795bdfdff4c02503bcc'. Detailed error Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/758f77ef4c794795bdfdff4c02503bcc/meta.yaml' does not exist.
+[2025-08-21T05:13:34.727+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-21T05:13:34.729+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 327, in search_experiments
+[2025-08-21T05:13:34.730+0000] {subprocess.py:93} INFO -     exp = self._get_experiment(exp_id, view_type)
+[2025-08-21T05:13:34.731+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 421, in _get_experiment
+[2025-08-21T05:13:34.733+0000] {subprocess.py:93} INFO -     meta = FileStore._read_yaml(experiment_dir, FileStore.META_DATA_FILE_NAME)
+[2025-08-21T05:13:34.734+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1367, in _read_yaml
+[2025-08-21T05:13:34.736+0000] {subprocess.py:93} INFO -     return _read_helper(root, file_name, attempts_remaining=retries)
+[2025-08-21T05:13:34.737+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1360, in _read_helper
+[2025-08-21T05:13:34.740+0000] {subprocess.py:93} INFO -     result = read_yaml(root, file_name)
+[2025-08-21T05:13:34.742+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 309, in read_yaml
+[2025-08-21T05:13:34.749+0000] {subprocess.py:93} INFO -     raise MissingConfigException(f"Yaml file '{file_path}' does not exist.")
+[2025-08-21T05:13:34.752+0000] {subprocess.py:93} INFO - mlflow.exceptions.MissingConfigException: Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/758f77ef4c794795bdfdff4c02503bcc/meta.yaml' does not exist.
+[2025-08-21T05:13:34.754+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:34,736 WARNING Malformed experiment '7a4c300b24d14505ba7f4df32748abf9'. Detailed error Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/7a4c300b24d14505ba7f4df32748abf9/meta.yaml' does not exist.
+[2025-08-21T05:13:34.755+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-21T05:13:34.757+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 327, in search_experiments
+[2025-08-21T05:13:34.761+0000] {subprocess.py:93} INFO -     exp = self._get_experiment(exp_id, view_type)
+[2025-08-21T05:13:34.762+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 421, in _get_experiment
+[2025-08-21T05:13:34.763+0000] {subprocess.py:93} INFO -     meta = FileStore._read_yaml(experiment_dir, FileStore.META_DATA_FILE_NAME)
+[2025-08-21T05:13:34.764+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1367, in _read_yaml
+[2025-08-21T05:13:34.766+0000] {subprocess.py:93} INFO -     return _read_helper(root, file_name, attempts_remaining=retries)
+[2025-08-21T05:13:34.767+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1360, in _read_helper
+[2025-08-21T05:13:34.769+0000] {subprocess.py:93} INFO -     result = read_yaml(root, file_name)
+[2025-08-21T05:13:34.770+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 309, in read_yaml
+[2025-08-21T05:13:34.772+0000] {subprocess.py:93} INFO -     raise MissingConfigException(f"Yaml file '{file_path}' does not exist.")
+[2025-08-21T05:13:34.774+0000] {subprocess.py:93} INFO - mlflow.exceptions.MissingConfigException: Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/7a4c300b24d14505ba7f4df32748abf9/meta.yaml' does not exist.
+[2025-08-21T05:13:34.777+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:34,765 WARNING Malformed experiment '7fd6ebbc25ba485ba1086b06b2552e0e'. Detailed error Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/7fd6ebbc25ba485ba1086b06b2552e0e/meta.yaml' does not exist.
+[2025-08-21T05:13:34.779+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-21T05:13:34.783+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 327, in search_experiments
+[2025-08-21T05:13:34.786+0000] {subprocess.py:93} INFO -     exp = self._get_experiment(exp_id, view_type)
+[2025-08-21T05:13:34.788+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 421, in _get_experiment
+[2025-08-21T05:13:34.790+0000] {subprocess.py:93} INFO -     meta = FileStore._read_yaml(experiment_dir, FileStore.META_DATA_FILE_NAME)
+[2025-08-21T05:13:34.795+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1367, in _read_yaml
+[2025-08-21T05:13:34.798+0000] {subprocess.py:93} INFO -     return _read_helper(root, file_name, attempts_remaining=retries)
+[2025-08-21T05:13:34.799+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1360, in _read_helper
+[2025-08-21T05:13:34.800+0000] {subprocess.py:93} INFO -     result = read_yaml(root, file_name)
+[2025-08-21T05:13:34.801+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 309, in read_yaml
+[2025-08-21T05:13:34.803+0000] {subprocess.py:93} INFO -     raise MissingConfigException(f"Yaml file '{file_path}' does not exist.")
+[2025-08-21T05:13:34.804+0000] {subprocess.py:93} INFO - mlflow.exceptions.MissingConfigException: Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/7fd6ebbc25ba485ba1086b06b2552e0e/meta.yaml' does not exist.
+[2025-08-21T05:13:34.807+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:34,787 WARNING Malformed experiment '9f8a2292aea24d39a6b035889d38fb72'. Detailed error Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/9f8a2292aea24d39a6b035889d38fb72/meta.yaml' does not exist.
+[2025-08-21T05:13:34.808+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-21T05:13:34.812+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 327, in search_experiments
+[2025-08-21T05:13:34.818+0000] {subprocess.py:93} INFO -     exp = self._get_experiment(exp_id, view_type)
+[2025-08-21T05:13:34.822+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 421, in _get_experiment
+[2025-08-21T05:13:34.826+0000] {subprocess.py:93} INFO -     meta = FileStore._read_yaml(experiment_dir, FileStore.META_DATA_FILE_NAME)
+[2025-08-21T05:13:34.829+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1367, in _read_yaml
+[2025-08-21T05:13:34.832+0000] {subprocess.py:93} INFO -     return _read_helper(root, file_name, attempts_remaining=retries)
+[2025-08-21T05:13:34.833+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1360, in _read_helper
+[2025-08-21T05:13:34.834+0000] {subprocess.py:93} INFO -     result = read_yaml(root, file_name)
+[2025-08-21T05:13:34.835+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 309, in read_yaml
+[2025-08-21T05:13:34.837+0000] {subprocess.py:93} INFO -     raise MissingConfigException(f"Yaml file '{file_path}' does not exist.")
+[2025-08-21T05:13:34.838+0000] {subprocess.py:93} INFO - mlflow.exceptions.MissingConfigException: Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/9f8a2292aea24d39a6b035889d38fb72/meta.yaml' does not exist.
+[2025-08-21T05:13:34.839+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:34,804 WARNING Malformed experiment 'a20986ad69c34568ab9b4cdb0a0c41f5'. Detailed error Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/a20986ad69c34568ab9b4cdb0a0c41f5/meta.yaml' does not exist.
+[2025-08-21T05:13:34.841+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-21T05:13:34.842+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 327, in search_experiments
+[2025-08-21T05:13:34.844+0000] {subprocess.py:93} INFO -     exp = self._get_experiment(exp_id, view_type)
+[2025-08-21T05:13:34.845+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 421, in _get_experiment
+[2025-08-21T05:13:34.847+0000] {subprocess.py:93} INFO -     meta = FileStore._read_yaml(experiment_dir, FileStore.META_DATA_FILE_NAME)
+[2025-08-21T05:13:34.851+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1367, in _read_yaml
+[2025-08-21T05:13:34.859+0000] {subprocess.py:93} INFO -     return _read_helper(root, file_name, attempts_remaining=retries)
+[2025-08-21T05:13:34.861+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1360, in _read_helper
+[2025-08-21T05:13:34.862+0000] {subprocess.py:93} INFO -     result = read_yaml(root, file_name)
+[2025-08-21T05:13:34.864+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 309, in read_yaml
+[2025-08-21T05:13:34.868+0000] {subprocess.py:93} INFO -     raise MissingConfigException(f"Yaml file '{file_path}' does not exist.")
+[2025-08-21T05:13:34.870+0000] {subprocess.py:93} INFO - mlflow.exceptions.MissingConfigException: Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/a20986ad69c34568ab9b4cdb0a0c41f5/meta.yaml' does not exist.
+[2025-08-21T05:13:34.872+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:34,831 WARNING Malformed experiment 'b682dba240844ed68344d97d245b4459'. Detailed error Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/b682dba240844ed68344d97d245b4459/meta.yaml' does not exist.
+[2025-08-21T05:13:34.873+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-21T05:13:34.874+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 327, in search_experiments
+[2025-08-21T05:13:34.876+0000] {subprocess.py:93} INFO -     exp = self._get_experiment(exp_id, view_type)
+[2025-08-21T05:13:34.877+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 421, in _get_experiment
+[2025-08-21T05:13:34.878+0000] {subprocess.py:93} INFO -     meta = FileStore._read_yaml(experiment_dir, FileStore.META_DATA_FILE_NAME)
+[2025-08-21T05:13:34.879+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1367, in _read_yaml
+[2025-08-21T05:13:34.880+0000] {subprocess.py:93} INFO -     return _read_helper(root, file_name, attempts_remaining=retries)
+[2025-08-21T05:13:34.882+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1360, in _read_helper
+[2025-08-21T05:13:34.893+0000] {subprocess.py:93} INFO -     result = read_yaml(root, file_name)
+[2025-08-21T05:13:34.895+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 309, in read_yaml
+[2025-08-21T05:13:34.897+0000] {subprocess.py:93} INFO -     raise MissingConfigException(f"Yaml file '{file_path}' does not exist.")
+[2025-08-21T05:13:34.898+0000] {subprocess.py:93} INFO - mlflow.exceptions.MissingConfigException: Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/b682dba240844ed68344d97d245b4459/meta.yaml' does not exist.
+[2025-08-21T05:13:34.900+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:34,852 WARNING Malformed experiment 'ccfdd47280274aaf8b96e7d6067888c4'. Detailed error Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/ccfdd47280274aaf8b96e7d6067888c4/meta.yaml' does not exist.
+[2025-08-21T05:13:34.903+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-21T05:13:34.906+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 327, in search_experiments
+[2025-08-21T05:13:34.907+0000] {subprocess.py:93} INFO -     exp = self._get_experiment(exp_id, view_type)
+[2025-08-21T05:13:34.909+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 421, in _get_experiment
+[2025-08-21T05:13:34.910+0000] {subprocess.py:93} INFO -     meta = FileStore._read_yaml(experiment_dir, FileStore.META_DATA_FILE_NAME)
+[2025-08-21T05:13:34.911+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1367, in _read_yaml
+[2025-08-21T05:13:34.914+0000] {subprocess.py:93} INFO -     return _read_helper(root, file_name, attempts_remaining=retries)
+[2025-08-21T05:13:34.915+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1360, in _read_helper
+[2025-08-21T05:13:34.916+0000] {subprocess.py:93} INFO -     result = read_yaml(root, file_name)
+[2025-08-21T05:13:34.918+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 309, in read_yaml
+[2025-08-21T05:13:34.919+0000] {subprocess.py:93} INFO -     raise MissingConfigException(f"Yaml file '{file_path}' does not exist.")
+[2025-08-21T05:13:34.923+0000] {subprocess.py:93} INFO - mlflow.exceptions.MissingConfigException: Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/ccfdd47280274aaf8b96e7d6067888c4/meta.yaml' does not exist.
+[2025-08-21T05:13:34.932+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:34,876 WARNING Malformed experiment 'd58cbb1df47a44b0a994ac020152d04d'. Detailed error Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/d58cbb1df47a44b0a994ac020152d04d/meta.yaml' does not exist.
+[2025-08-21T05:13:34.933+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-21T05:13:34.934+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 327, in search_experiments
+[2025-08-21T05:13:34.938+0000] {subprocess.py:93} INFO -     exp = self._get_experiment(exp_id, view_type)
+[2025-08-21T05:13:34.941+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 421, in _get_experiment
+[2025-08-21T05:13:34.942+0000] {subprocess.py:93} INFO -     meta = FileStore._read_yaml(experiment_dir, FileStore.META_DATA_FILE_NAME)
+[2025-08-21T05:13:34.944+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1367, in _read_yaml
+[2025-08-21T05:13:34.945+0000] {subprocess.py:93} INFO -     return _read_helper(root, file_name, attempts_remaining=retries)
+[2025-08-21T05:13:34.947+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1360, in _read_helper
+[2025-08-21T05:13:34.949+0000] {subprocess.py:93} INFO -     result = read_yaml(root, file_name)
+[2025-08-21T05:13:34.950+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 309, in read_yaml
+[2025-08-21T05:13:34.952+0000] {subprocess.py:93} INFO -     raise MissingConfigException(f"Yaml file '{file_path}' does not exist.")
+[2025-08-21T05:13:34.953+0000] {subprocess.py:93} INFO - mlflow.exceptions.MissingConfigException: Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/d58cbb1df47a44b0a994ac020152d04d/meta.yaml' does not exist.
+[2025-08-21T05:13:34.957+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:34,899 WARNING Malformed experiment 'e45a2c3f2fe5435bb5ee5c51f9930955'. Detailed error Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/e45a2c3f2fe5435bb5ee5c51f9930955/meta.yaml' does not exist.
+[2025-08-21T05:13:34.960+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-08-21T05:13:34.964+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 327, in search_experiments
+[2025-08-21T05:13:34.966+0000] {subprocess.py:93} INFO -     exp = self._get_experiment(exp_id, view_type)
+[2025-08-21T05:13:34.968+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 421, in _get_experiment
+[2025-08-21T05:13:34.970+0000] {subprocess.py:93} INFO -     meta = FileStore._read_yaml(experiment_dir, FileStore.META_DATA_FILE_NAME)
+[2025-08-21T05:13:34.971+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1367, in _read_yaml
+[2025-08-21T05:13:34.977+0000] {subprocess.py:93} INFO -     return _read_helper(root, file_name, attempts_remaining=retries)
+[2025-08-21T05:13:34.978+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/store/tracking/file_store.py", line 1360, in _read_helper
+[2025-08-21T05:13:34.980+0000] {subprocess.py:93} INFO -     result = read_yaml(root, file_name)
+[2025-08-21T05:13:34.981+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 309, in read_yaml
+[2025-08-21T05:13:34.982+0000] {subprocess.py:93} INFO -     raise MissingConfigException(f"Yaml file '{file_path}' does not exist.")
+[2025-08-21T05:13:34.983+0000] {subprocess.py:93} INFO - mlflow.exceptions.MissingConfigException: Yaml file '/opt/***/Customer_Churn_Prediction_Pipeline/mlruns/e45a2c3f2fe5435bb5ee5c51f9930955/meta.yaml' does not exist.
+[2025-08-21T05:13:34.984+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:34,906 INFO Loading features and target from feature store...
+[2025-08-21T05:13:34.985+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:34,907 INFO Connecting to SQLite DB at data/features/churn_features.db
+[2025-08-21T05:13:34.986+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:34,943 INFO Available tables: ['churn_features']
+[2025-08-21T05:13:35.528+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:35,528 INFO Retrieved 7032 rows and 36 columns from table churn_features
+[2025-08-21T05:13:35.535+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:35,533 INFO Found target column 'Churn'. Processing...
+[2025-08-21T05:13:35.537+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:35,535 INFO Raw target column stats:
+[2025-08-21T05:13:35.539+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:35,536 INFO   - Type: float64
+[2025-08-21T05:13:35.542+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:35,536 INFO   - Unique values: [-0.601663392508594, 1.6620589061112205]
+[2025-08-21T05:13:35.543+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:35,543 INFO   - Value counts:
+[2025-08-21T05:13:35.545+0000] {subprocess.py:93} INFO - -0.601663    5163
+[2025-08-21T05:13:35.546+0000] {subprocess.py:93} INFO -  1.662059    1869
+[2025-08-21T05:13:35.547+0000] {subprocess.py:93} INFO - Name: Churn, dtype: int64
+[2025-08-21T05:13:35.548+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:35,546 INFO Original target values before normalization: -0.601663    5163
+[2025-08-21T05:13:35.553+0000] {subprocess.py:93} INFO -  1.662059    1869
+[2025-08-21T05:13:35.555+0000] {subprocess.py:93} INFO - Name: Churn, dtype: int64
+[2025-08-21T05:13:35.556+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:35,546 INFO Original target dtype: float64
+[2025-08-21T05:13:35.557+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:35,547 INFO Unique numeric values in target: [-0.601663392508594, 1.6620589061112205]
+[2025-08-21T05:13:35.558+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:35,547 INFO Binary target with values [-0.601663392508594, 1.6620589061112205]. Mapping to (0,1).
+[2025-08-21T05:13:35.559+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:35,548 INFO Mapped -0.601663392508594→0, 1.6620589061112205→1
+[2025-08-21T05:13:35.559+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:35,555 INFO Final normalized target stats:
+[2025-08-21T05:13:35.560+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:35,556 INFO   - Unique values: [0, 1]
+[2025-08-21T05:13:35.561+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:35,559 INFO   - Value counts:
+[2025-08-21T05:13:35.562+0000] {subprocess.py:93} INFO - 0    5163
+[2025-08-21T05:13:35.562+0000] {subprocess.py:93} INFO - 1    1869
+[2025-08-21T05:13:35.563+0000] {subprocess.py:93} INFO - Name: Churn, dtype: int64
+[2025-08-21T05:13:35.564+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:35,559 INFO Features shape before dtype fix: (7032, 35), Target shape: (7032,)
+[2025-08-21T05:13:35.602+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:35,602 INFO Features dtypes after fix:
+[2025-08-21T05:13:35.604+0000] {subprocess.py:93} INFO - gender                                   float64
+[2025-08-21T05:13:35.606+0000] {subprocess.py:93} INFO - SeniorCitizen                            float64
+[2025-08-21T05:13:35.608+0000] {subprocess.py:93} INFO - Partner                                  float64
+[2025-08-21T05:13:35.611+0000] {subprocess.py:93} INFO - Dependents                               float64
+[2025-08-21T05:13:35.614+0000] {subprocess.py:93} INFO - tenure                                   float64
+[2025-08-21T05:13:35.615+0000] {subprocess.py:93} INFO - PhoneService                             float64
+[2025-08-21T05:13:35.617+0000] {subprocess.py:93} INFO - PaperlessBilling                         float64
+[2025-08-21T05:13:35.619+0000] {subprocess.py:93} INFO - MonthlyCharges                           float64
+[2025-08-21T05:13:35.620+0000] {subprocess.py:93} INFO - TotalCharges                             float64
+[2025-08-21T05:13:35.621+0000] {subprocess.py:93} INFO - TotalChargesPerTenure                    float64
+[2025-08-21T05:13:35.623+0000] {subprocess.py:93} INFO - MultipleLines_No phone service           float64
+[2025-08-21T05:13:35.624+0000] {subprocess.py:93} INFO - MultipleLines_Yes                        float64
+[2025-08-21T05:13:35.626+0000] {subprocess.py:93} INFO - InternetService_Fiber optic              float64
+[2025-08-21T05:13:35.628+0000] {subprocess.py:93} INFO - InternetService_No                       float64
+[2025-08-21T05:13:35.629+0000] {subprocess.py:93} INFO - OnlineSecurity_No internet service       float64
+[2025-08-21T05:13:35.630+0000] {subprocess.py:93} INFO - OnlineSecurity_Yes                       float64
+[2025-08-21T05:13:35.631+0000] {subprocess.py:93} INFO - OnlineBackup_No internet service         float64
+[2025-08-21T05:13:35.631+0000] {subprocess.py:93} INFO - OnlineBackup_Yes                         float64
+[2025-08-21T05:13:35.632+0000] {subprocess.py:93} INFO - DeviceProtection_No internet service     float64
+[2025-08-21T05:13:35.633+0000] {subprocess.py:93} INFO - DeviceProtection_Yes                     float64
+[2025-08-21T05:13:35.634+0000] {subprocess.py:93} INFO - TechSupport_No internet service          float64
+[2025-08-21T05:13:35.635+0000] {subprocess.py:93} INFO - TechSupport_Yes                          float64
+[2025-08-21T05:13:35.636+0000] {subprocess.py:93} INFO - StreamingTV_No internet service          float64
+[2025-08-21T05:13:35.637+0000] {subprocess.py:93} INFO - StreamingTV_Yes                          float64
+[2025-08-21T05:13:35.638+0000] {subprocess.py:93} INFO - StreamingMovies_No internet service      float64
+[2025-08-21T05:13:35.639+0000] {subprocess.py:93} INFO - StreamingMovies_Yes                      float64
+[2025-08-21T05:13:35.642+0000] {subprocess.py:93} INFO - Contract_One year                        float64
+[2025-08-21T05:13:35.644+0000] {subprocess.py:93} INFO - Contract_Two year                        float64
+[2025-08-21T05:13:35.645+0000] {subprocess.py:93} INFO - PaymentMethod_Credit card (automatic)    float64
+[2025-08-21T05:13:35.646+0000] {subprocess.py:93} INFO - PaymentMethod_Electronic check           float64
+[2025-08-21T05:13:35.649+0000] {subprocess.py:93} INFO - PaymentMethod_Mailed check               float64
+[2025-08-21T05:13:35.651+0000] {subprocess.py:93} INFO - TenureGroup_13-24                        float64
+[2025-08-21T05:13:35.652+0000] {subprocess.py:93} INFO - TenureGroup_25-48                        float64
+[2025-08-21T05:13:35.654+0000] {subprocess.py:93} INFO - TenureGroup_49-60                        float64
+[2025-08-21T05:13:35.655+0000] {subprocess.py:93} INFO - TenureGroup_61+                          float64
+[2025-08-21T05:13:35.656+0000] {subprocess.py:93} INFO - dtype: object
+[2025-08-21T05:13:35.659+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:35,604 INFO Unique classes in target: [0 1]
+[2025-08-21T05:13:35.661+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:35,605 INFO Class distribution: [5163 1869]
+[2025-08-21T05:13:40.433+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:40,432 INFO Logistic Regression recall=0.7807, acc=0.7306, prec=0.4958, f1=0.6064
+[2025-08-21T05:13:40.469+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:40,468 INFO Classification report:
+[2025-08-21T05:13:40.470+0000] {subprocess.py:93} INFO -               precision    recall  f1-score   support
+[2025-08-21T05:13:40.471+0000] {subprocess.py:93} INFO - 
+[2025-08-21T05:13:40.473+0000] {subprocess.py:93} INFO -            0       0.90      0.71      0.80      1033
+[2025-08-21T05:13:40.474+0000] {subprocess.py:93} INFO -            1       0.50      0.78      0.61       374
+[2025-08-21T05:13:40.477+0000] {subprocess.py:93} INFO - 
+[2025-08-21T05:13:40.480+0000] {subprocess.py:93} INFO -     accuracy                           0.73      1407
+[2025-08-21T05:13:40.481+0000] {subprocess.py:93} INFO -    macro avg       0.70      0.75      0.70      1407
+[2025-08-21T05:13:40.485+0000] {subprocess.py:93} INFO - weighted avg       0.79      0.73      0.75      1407
+[2025-08-21T05:13:40.490+0000] {subprocess.py:93} INFO - 
+[2025-08-21T05:13:45.054+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:45,053 INFO RandomForest recall=0.4733, acc=0.7953, prec=0.6604, f1=0.5514
+[2025-08-21T05:13:45.125+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:45,124 INFO Classification report:
+[2025-08-21T05:13:45.127+0000] {subprocess.py:93} INFO -               precision    recall  f1-score   support
+[2025-08-21T05:13:45.129+0000] {subprocess.py:93} INFO - 
+[2025-08-21T05:13:45.135+0000] {subprocess.py:93} INFO -            0       0.83      0.91      0.87      1033
+[2025-08-21T05:13:45.141+0000] {subprocess.py:93} INFO -            1       0.66      0.47      0.55       374
+[2025-08-21T05:13:45.143+0000] {subprocess.py:93} INFO - 
+[2025-08-21T05:13:45.144+0000] {subprocess.py:93} INFO -     accuracy                           0.80      1407
+[2025-08-21T05:13:45.147+0000] {subprocess.py:93} INFO -    macro avg       0.74      0.69      0.71      1407
+[2025-08-21T05:13:45.156+0000] {subprocess.py:93} INFO - weighted avg       0.78      0.80      0.78      1407
+[2025-08-21T05:13:45.157+0000] {subprocess.py:93} INFO - 
+[2025-08-21T05:13:45.342+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:45,342 INFO Best model (LogisticRegression) saved locally to models/churn_model.pkl with recall=0.7807
+[2025-08-21T05:13:45.345+0000] {subprocess.py:93} INFO - 2025-08-21 05:13:45,344 INFO Best run_id written to /tmp/best_run_id.txt
+[2025-08-21T05:14:03.348+0000] {subprocess.py:93} INFO - /home/***/.local/lib/python3.8/site-packages/mlflow/types/utils.py:407: UserWarning: Hint: Inferred schema contains integer column(s). Integer columns in Python cannot represent missing values. If your input data contains missing values at inference time, it will be encoded as floats and will cause a schema enforcement error. The best way to avoid this problem is to infer the model schema based on a realistic data sample (training dataset) that includes missing values. Alternatively, you can declare integer columns as doubles (float64) whenever these columns may have missing values. See `Handling Integers With Missing Values <https://www.mlflow.org/docs/latest/models.html#handling-integers-with-missing-values>`_ for more details.
+[2025-08-21T05:14:03.350+0000] {subprocess.py:93} INFO -   warnings.warn(
+[2025-08-21T05:14:03.367+0000] {subprocess.py:93} INFO - Registered model 'churn_model' already exists. Creating a new version of this model...
+[2025-08-21T05:14:03.371+0000] {subprocess.py:93} INFO - 2025-08-21 05:14:03,347 WARNING Model Version creation error (name=churn_model) Retrying 2 more times.
+[2025-08-21T05:14:04.724+0000] {subprocess.py:93} INFO - 2025-08-21 05:14:04,724 WARNING Model Version creation error (name=churn_model) Retrying 1 more time.
+[2025-08-21T05:14:05.187+0000] {subprocess.py:93} INFO - 2025-08-21 05:14:05,187 WARNING Model Version creation error (name=churn_model) Retrying 0 more time.
+[2025-08-21T05:14:05.339+0000] {subprocess.py:93} INFO - 2025-08-21 05:14:05,339 WARNING MLflow model registry logging failed: Model Version creation error (name=churn_model). Error: [Errno 1] Operation not permitted. Giving up after 3 attempts.. Continuing with local model only.
+[2025-08-21T05:14:06.492+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-08-21T05:14:06.730+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=customer_churn_pipeline, task_id=model_training, execution_date=20250820T000000, start_date=20250821T051318, end_date=20250821T051406
+[2025-08-21T05:14:06.931+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-08-21T05:14:07.218+0000] {taskinstance.py:3312} INFO - 1 downstream tasks scheduled from follow-on schedule check
